@@ -1,7 +1,7 @@
 # paths
 
 # To generate unicorn on console:
-# unicorn_rails -c /srv/rails/scraper/current/config/unicorn/unicorn.rb -D
+# unicorn_rails -c /srv/rails/Scan/current/config/unicorn/unicorn.rb -D
 root = "/srv/rails/scraper/current"
 working_directory root
 pid "#{root}/tmp/ids/unicorn.pid"

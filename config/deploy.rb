@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.7.1'
 
-set :application, 'scraper'
+set :application, 'Scraper'
 set :repo_url, 'git@bitbucket.org:agrimbautomas/scraper.git'
 
 # Default branch is :master
@@ -44,10 +44,14 @@ namespace :deploy do
     end
   end
 
-  desc 'Create Slugs'
-  task :generate_slugs => :environment do
-    Product.find_each(&:save)
+
+  desc 'Update Cron Jobs'
+  task :update_crontabs do
+    exec 'whenever --update-crontab'
   end
+
+  #TODO Implemente
+  #/usr/local/rvm/bin/rvm default do bundle exec  whenever --update-crontab
 
   after :publishing, :restart
 

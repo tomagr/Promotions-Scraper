@@ -1,9 +1,9 @@
 class ScraperController < ApplicationController
   def index
-    @entries = Entry.all
+    @entries = Entry.all.order('id DESC')
   end
 
   def scrape_site
-    @results = Scraper.scrape_by_url "http://experienciasblack.lanacion.com.ar/"
+    @results = SiteScraper.scrape_by_url "http://experienciasblack.lanacion.com.ar/"
   end
 end

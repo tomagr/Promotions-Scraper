@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class Scraper < ApplicationRecord
+class SiteScraper < ApplicationRecord
 
   def self.scrape_by_url url
     doc = Nokogiri::HTML(open(url))
@@ -15,8 +15,7 @@ class Scraper < ApplicationRecord
       status = entry.css('ul li span').text
 
 
-      #if Entry.find_by_site_id(site_id).nil?
-      if site_id == 12049
+      if Entry.find_by_site_id(site_id).nil?
         entry = Entry.create(:title => title, :status => status, :site_id => site_id)
         UserMailer.new_entry_email(entry).deliver_now
       end

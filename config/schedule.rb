@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 2.minutes do
-  rake "scraper:entries"
+every 10.minutes do
+  rake "scraper:entries", :environment => 'development'
 end
 

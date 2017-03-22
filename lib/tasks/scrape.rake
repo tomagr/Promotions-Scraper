@@ -1,6 +1,6 @@
 namespace :scraper do
-  desc 'Generate Product Slugs'
+  desc 'Scrape Site'
   task :entries => :environment do
-    Scraper.scrape_by_url 'http://experienciasblack.lanacion.com.ar/'
+    SiteScraper.scrape_by_url 'http://experienciasblack.lanacion.com.ar/'
   end
 end
