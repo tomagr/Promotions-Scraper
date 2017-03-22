@@ -34,7 +34,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :keep_releases, 5
 
 
-
 namespace :deploy do
 
   desc 'Restart application'
@@ -47,10 +46,12 @@ namespace :deploy do
 
   desc 'Update Cron Jobs'
   task :update_crontabs do
-    exec 'whenever --update-crontab'
+    on roles(:app), in: :sequence, wait: 5 do
+      exec 'whenever --update-crontab'
+    end
   end
 
-  #TODO Implemente
+  #TODO Implement
   #/usr/local/rvm/bin/rvm default do bundle exec  whenever --update-crontab
 
   after :publishing, :restart
