@@ -4,8 +4,10 @@ class UserMailer < ApplicationMailer
   def new_entry_email(entry)
 
     @entry = entry
-    mail_to = 'tomas@theamalgama.com,smacagno@gmail.com'
-    #mail_to = 'agrimbautomas@gmail.com'
+    mail_to = 'tomas@amalgama.co,smacagno@gmail.com,
+                gonzalo@amalgama.co,florenciacharpentier@gmail.com,
+                jose@amalgama.co'
+    #mail_to = 'tomas@theamalgama.com'
     mail(to: mail_to, subject: 'RatAlert - ' + entry.title)
   end
 
