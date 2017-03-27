@@ -1,6 +1,7 @@
 class ScraperController < ApplicationController
   def index
-    @entries = Entry.all.order('id DESC')
+    #Get available first
+    @entries = Entry.all.order('status DESC, id DESC').limit(20)
   end
 
   def scrape_site
