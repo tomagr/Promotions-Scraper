@@ -56,10 +56,10 @@ namespace :deploy do
 
   after :publishing, :restart
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      exec 'whenever --update-crontab'
-    end
-  end
+  #after :restart, :clear_cache do
+   # on roles(:web), in: :groups, limit: 3, wait: 10 do
+    #  exec 'whenever --update-crontab'
+    #end
+  #end
 
 end
