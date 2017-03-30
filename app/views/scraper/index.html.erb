@@ -3,7 +3,7 @@
 <table>
 
   <% @entries.each do |entry| %>
-      <ul>
+      <ul class="<%= entry.status.parameterize == '' ? 'available' : 'not-available' %>">
         <li><strong>Id: </strong><%= entry.id %></li>
         <li><strong>Site Id: </strong><%= entry.site_id %></li>
         <li><strong>Title: </strong><%= entry.title %></li>
