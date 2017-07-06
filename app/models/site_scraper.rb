@@ -20,17 +20,10 @@ class SiteScraper < ApplicationRecord
     site_id = parse_id_from_uri entry.css('h2 a')[0]['href']
     status = entry.css('ul li span').text
 
-
-    entry = Entry.find_by_site_id(site_id)
-    if entry.nil?
-      #Notify if new entry status changed to Available
+    # And doesn't exists on DB?
+    if is_available? entry and Entry.find_by_site_id(site_id).nil?
       entry = Entry.create(:title => title, :status => status, :site_id => site_id)
       UserMailer.new_entry_email(entry).deliver_now if entry.status.blank?
-
-    else
-      #Notify if status changed to Available
-      UserMailer.new_entry_email(entry).deliver_now if status.blank? and !entry.status.blank?
-      entry.update(status: status)
     end
 
   end
@@ -38,4 +31,10 @@ class SiteScraper < ApplicationRecord
   def self.parse_id_from_uri uri
     uri.gsub("/experiencia/", "").to_i
   end
+
+
+  def self.is_available? entry
+    entry.css('figcaption').present? and entry.css('figcaption').text == 'Reservá ahora'
+  end
+
 end
