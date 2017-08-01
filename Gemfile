@@ -34,10 +34,6 @@ gem 'nokogiri'
 #Cron Job
 gem 'whenever', :require => false
 
-
-gem 'unicorn'
-
-
 gem 'listen', '~> 3.0.5'
 
 gem 'mysql2', '~> 0.3.18'
@@ -51,7 +47,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-puma'
   gem 'capistrano-rvm'
 end
 

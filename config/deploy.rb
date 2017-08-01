@@ -37,12 +37,6 @@ set :keep_releases, 1
 namespace :deploy do
 
   desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'unicorn:restart'
-    end
-  end
-
 
   desc 'Update Cron Jobs'
   task :update_crontabs do
