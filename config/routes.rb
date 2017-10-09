@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'scraper#index'
 
-  get 'scraper/scrape_site'
+  get 'scrape', to: 'scraper#scrape'
+  get 'list', to: 'scraper#list'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
