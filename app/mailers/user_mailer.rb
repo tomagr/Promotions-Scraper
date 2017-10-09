@@ -10,8 +10,8 @@ class UserMailer < ApplicationMailer
 
 
 	 @entry = entry
-	 mail_to = 'tomas@amalgama.co,smacagno@gmail.com,rmacagno@hotmail.com,lilitogni29@hotmail.com'
-	 #mail_to = 'tomas@theamalgama.com'
+	 #mail_to = 'tomas@amalgama.co,smacagno@gmail.com,rmacagno@hotmail.com,lilitogni29@hotmail.com'
+	 mail_to = 'tomas@theamalgama.com'
 	 mail(to: mail_to, subject: 'RatAlert - ' + entry.title)
   end
 
