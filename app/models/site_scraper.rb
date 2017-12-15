@@ -25,13 +25,15 @@ class SiteScraper < ApplicationRecord
 
   def self.analize_entry entry
 	 title = entry.css('h2 a').text
-	 site_id = parse_id_from_uri entry.css('h2 a')[0]['href']
-	 status = entry.css('ul li span').text
+	 if title.present?
+		site_id = parse_id_from_uri entry.css('h2 a')[0]['href']
+		status = entry.css('ul li span').text
 
-	 # And doesn't exists on DB?
-	 if is_available? entry and Entry.find_by_site_id(site_id).nil?
-		entry = Entry.create(:title => title, :status => status, :site_id => site_id)
-		UserMailer.new_entry_email(entry).deliver_now if entry.status.blank?
+		# And doesn't exists on DB?
+		if is_available? entry and Entry.find_by_site_id(site_id).nil?
+		  entry = Entry.create(:title => title, :status => status, :site_id => site_id)
+		  UserMailer.new_entry_email(entry).deliver_now if entry.status.blank?
+		end
 	 end
   end
 
