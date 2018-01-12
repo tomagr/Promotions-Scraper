@@ -10,5 +10,9 @@ class UserMailer < ApplicationMailer
 	 mail(bcc: mail_to, subject: 'RatAlert - ' + entry.title)
   end
 
+  def admin_email(error)
+	 @error = error
+	 mail(bcc: 'tomas@amalgama.co', subject: 'RatAlert Exception')
+  end
 
 end
