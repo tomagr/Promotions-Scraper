@@ -36,6 +36,9 @@ gem 'config'
 # Auto schema in models, url: https://github.com/ctran/annotate_models
 gem 'annotate'
 
+# For user model, url: https://github.com/plataformatec/devise
+gem 'devise'
+
 gem 'nokogiri'
 
 #Cron Job

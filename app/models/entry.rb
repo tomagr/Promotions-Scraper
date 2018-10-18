@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: entries
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  status     :string
+#  site_id    :integer
+#  date       :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Entry < ApplicationRecord
 
   validates :title, presence: true
