@@ -29,7 +29,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 
-
 # Generate Settings files, url: https://github.com/railsconfig/config
 gem 'config'
 
@@ -38,6 +37,9 @@ gem 'annotate'
 
 # For user model, url: https://github.com/plataformatec/devise
 gem 'devise'
+
+# Active admin, url: https://github.com/activeadmin/activeadmin
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'nokogiri'
 
@@ -49,24 +51,24 @@ gem 'listen', '~> 3.0.5'
 gem 'mysql2', '~> 0.3.18'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+	gem 'byebug', platform: :mri
 
 
-  gem 'rspec-rails'
-  gem 'fuubar'
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano3-puma'
-  gem 'capistrano-rvm'
+	gem 'rspec-rails'
+	gem 'fuubar'
+	gem 'capistrano', '~> 3.1'
+	gem 'capistrano-rails', '~> 1.1'
+	gem 'capistrano3-puma'
+	gem 'capistrano-rvm'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+	# Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+	gem 'web-console'
+	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+	gem 'spring'
+	gem 'spring-watcher-listen', '~> 2.0.0'
 
 
 end
