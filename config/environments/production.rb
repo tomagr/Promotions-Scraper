@@ -35,7 +35,7 @@ Rails.application.configure do
 		:authentication => "plain"
 	}
 
-	config.log_level = :error
+	#config.log_level = :error
 
 	config.log_tags = [:request_id]
 
@@ -60,7 +60,6 @@ Rails.application.configure do
 	# Do not dump schema after migrations.
 	config.active_record.dump_schema_after_migration = false
 
-	config.web_console.whitelisted_ips = '0.0.0.0'
 	config.action_mailer.raise_delivery_errors = true # not needed but helpful
 	config.action_mailer.default_url_options = { host: '0.0.0.0', port: 3000 }
 	config.action_mailer.asset_host = "0.0.0.0:3000"
