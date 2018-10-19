@@ -1,23 +1,21 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  timeout: 5000
+  encoding: utf8
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  username: <%= ENV.fetch('POSTGRES_USER') { 'postgres' } %>
-  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'password' } %>
-  host: <%= ENV.fetch('POSTGRES_HOST') { 'postgres' } %>
+  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'sinclair' } %>
+  host: <%= ENV.fetch('MYSQL_HOST') { 'scraper-db' } %>
+
 
 development:
+  <<: *default
+  database: scraper_dev
+
+staging:
   <<: *default
   database: scraper_dev
 
 test:
   <<: *default
   database: scraper_test
-
-staging:
-  <<: *default
-  database: scraper_staging
-
-production:
-  <<: *default
-  database: scraper_prod

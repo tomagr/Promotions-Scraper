@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20181018195001) do
 
-  create_table "entries", force: :cascade do |t|
+  create_table "entries", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "status"
     t.integer "site_id"
@@ -21,17 +21,17 @@ ActiveRecord::Schema.define(version: 20181018195001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "scrapers", force: :cascade do |t|
+  create_table "scrapers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "site_scrapers", force: :cascade do |t|
+  create_table "site_scrapers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

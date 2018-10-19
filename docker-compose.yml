@@ -1,17 +1,20 @@
-version: '3.1'
+version: '3.6'
 services:
   scraper:
     container_name: scraper_ws
+    build: .
     stdin_open: ${DOCKERTTY}
     tty: ${DOCKERTTY}
-    build: .
     volumes:
-      - ./:/usr/src/scraper
+      - .:/usr/src/app
       - ~/.ssh:/root/.ssh
+      - ./public/system:/usr/src/app/public/system
     ports:
       - "3000:3000"
     depends_on:
       - scraper-db
+    env_file:
+      - '.env'
 
   scraper-db:
     container_name: scraper_db
@@ -22,3 +25,5 @@ services:
       MYSQL_ROOT_PASSWORD: sinclair
     volumes:
       - ./db/data:/var/lib/mysql
+    env_file:
+      - '.env'

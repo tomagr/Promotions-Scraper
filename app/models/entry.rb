@@ -3,8 +3,8 @@
 # Table name: entries
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  status     :string
+#  title      :string(255)
+#  status     :string(255)
 #  site_id    :integer
 #  date       :datetime
 #  created_at :datetime         not null
