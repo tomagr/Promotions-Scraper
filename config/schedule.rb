@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.minutes do
-  rake "scraper:entries", :environment => 'development'
+  rake "scraper:entries", :environment => 'production'
 end
 

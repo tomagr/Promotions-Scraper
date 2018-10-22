@@ -41,6 +41,9 @@ gem 'devise'
 # Active admin, url: https://github.com/activeadmin/activeadmin
 gem 'activeadmin', github: 'activeadmin'
 
+# url: https://github.com/activeadmin-plugins/active_material
+gem 'active_material', github: 'vigetlabs/active_material'
+
 gem 'nokogiri'
 
 #Cron Job
