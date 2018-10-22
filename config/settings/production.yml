@@ -1,5 +1,3 @@
 urls:
   base: http://ratalert.co
-users:
-  receivers: 'tomas@amalgama.co,smacagno@gmail.com,rmacagno@gmail.com,lilitogni29@hotmail.com,josetedin@gmail.com,agus_mllobet@hotmail.com'
 scrapped_site: "http://experienciasblack.lanacion.com.ar/"
