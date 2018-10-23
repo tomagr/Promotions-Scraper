@@ -12,5 +12,7 @@ module Scraper
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 	 $last_admin_email_time = Time.now
+	 config.time_zone = 'America/Argentina/Buenos_Aires'
+
   end
 end
