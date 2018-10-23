@@ -1,6 +1,19 @@
 ActiveAdmin.register Subscriber do
 	permit_params :email, :available
 
+	#
+	# Filters and Actions
+	#
+	batch_action 'Marcar como Inactivos' do |selection|
+		Subscriber.find(selection).each { |s| s.update_attributes(:available => false) }
+		redirect_to collection_path, :alert => 'Marcados como Inactivos'
+	end
+
+	batch_action 'Marcar como Activos' do |selection|
+		Subscriber.find(selection).each { |s| s.update_attributes(:available => true) }
+		redirect_to collection_path, :alert => 'Marcados como Activos'
+	end
+
 	scope(:available, default: true) do |subscriber|
 		subscriber.where(:available => true)
 	end

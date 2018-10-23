@@ -25,4 +25,11 @@ class Entry < ApplicationRecord
 		parsed_entry.css('figcaption').present? and parsed_entry.css('figcaption').text == 'Reservá ahora'
 	end
 
+	scope :available, -> {
+		where('status != "this_week"')
+			.where('status != "outofstock"')
+			.where('created_at > ?', Date.today - 7.days)
+	}
+
+
 end

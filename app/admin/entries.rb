@@ -1,16 +1,16 @@
 ActiveAdmin.register Entry do
 	permit_params :title, :status, :date, :site_id
 
-	scope('Disponibles', default: true) do |subscriber|
-		subscriber.where('status != "Próximamente"').where('status != "Agotado"')
+	scope('today', default: true) do |entity|
+		entity.available
 	end
 
-	scope('Próximamente', default: true) do |subscriber|
-		subscriber.where(:status => 'Próximamente')
+	scope('Esta semana', default: true) do |entity|
+		entity.where(:status => 'this_week')
 	end
 
-	scope('Agotados', default: true) do |subscriber|
-		subscriber.where(:status => 'Agotado')
+	scope('Agotados', default: true) do |entity|
+		entity.where(:status => 'outofstock')
 	end
 
 	index do
@@ -22,15 +22,12 @@ ActiveAdmin.register Entry do
 	end
 
 	filter :title
-	filter :status
 	filter :created_at
 
 	form do |f|
 		f.inputs do
 			f.input :title
 			f.input :status
-			f.input :date
-			f.input :site_id
 		end
 		f.actions
 	end
@@ -40,7 +37,6 @@ ActiveAdmin.register Entry do
 		attributes_table_for entity do
 			row :title
 			row :status
-			row :date
 			row :site_link do
 				link_to entity.site_link, entity.site_link
 			end
