@@ -18,10 +18,12 @@ ActiveAdmin.register Entry do
 		column :title
 		column :status
 		column :created_at
+		column :updated_at
 		actions
 	end
 
 	filter :title
+	filter :updated_at
 	filter :created_at
 
 	form do |f|
