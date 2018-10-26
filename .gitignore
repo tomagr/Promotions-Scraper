@@ -411,6 +411,4 @@ config/environments/*.local.yml
 config/settings/staging.yml
 config/settings/production.yml
 
-Dockerfile
-
 dump.rdb
