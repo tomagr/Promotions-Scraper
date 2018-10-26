@@ -27,6 +27,7 @@ class Entry < ApplicationRecord
 
 	scope :available, -> {
 		where('status != "this_week"')
+			.where('status != "coming"')
 			.where('status != "outofstock"')
 			.where('created_at > ?', Date.today - 7.days)
 	}

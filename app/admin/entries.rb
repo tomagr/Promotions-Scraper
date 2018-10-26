@@ -5,6 +5,10 @@ ActiveAdmin.register Entry do
 		entity.available
 	end
 
+	scope('Próximos', default: true) do |entity|
+		entity.where(:status => 'coming')
+	end
+
 	scope('Esta semana', default: true) do |entity|
 		entity.where(:status => 'this_week')
 	end
