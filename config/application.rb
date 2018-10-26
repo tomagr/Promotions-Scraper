@@ -14,5 +14,8 @@ module Scraper
 	 $last_admin_email_time = Time.now
 	 config.time_zone = 'America/Argentina/Buenos_Aires'
 
+	 config.autoload_paths << "#{Rails.root}/app/interactors"
+	 config.autoload_paths << "#{Rails.root}/app/errors"
+	 config.autoload_paths << "#{Rails.root}/app/validators"
   end
 end

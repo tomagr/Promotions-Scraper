@@ -1,4 +1,10 @@
-<h1>Scraper#scrape_site</h1>
-<p>Find me in app/views/scraper/scrape_site.html.erb</p>
+<h1>Scraper results</h1>
 
-<%= @results.inspect %>
+<% @results.each do |result| %>
+  <h1><%= result.title %></h1>
+  <h1><%= result.status %></h1>
+  <h1><%= result.updated_at %></h1>
+  <h1><%= DateTime.now + 1.minute %></h1>
+  <h1><%= result.released_at %></h1>
+  <br><br>
+<% end %>
