@@ -25,7 +25,8 @@ bower.json
 
 config/initializers/secret_token.rb
 config/secrets.yml
-config/database.yml
+/config/database.yml
+
 reports/
 
 # Created by https://www.gitignore.io/api/vim,ruby,linux,emacs,macos,windows,eclipse,intellij,rubymine,sublimetext,visualstudiocode
