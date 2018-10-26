@@ -23,6 +23,7 @@ ActiveAdmin.register Entry do
 		column :status
 		column :created_at
 		column :updated_at
+		column :released_at
 		actions
 	end
 

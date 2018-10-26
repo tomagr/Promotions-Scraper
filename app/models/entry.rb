@@ -2,12 +2,13 @@
 #
 # Table name: entries
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  status     :string(255)
-#  site_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  status      :string(255)
+#  site_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  released_at :datetime
 #
 
 class Entry < ApplicationRecord
