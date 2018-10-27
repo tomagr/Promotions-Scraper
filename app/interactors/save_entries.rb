@@ -56,7 +56,6 @@ class SaveEntries < Interactor
 
 	def send_alert_if_available entry
 		SendAlert.for(entry: entry) if is_today?(entry) and entry_is_available?
-
 	end
 
 	def parse_id_from_uri uri

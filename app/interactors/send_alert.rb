@@ -16,13 +16,13 @@ class SendAlert < Interactor
 	private
 
 	def send_alert_if_available
-		write_to_console entry
-		UserMailer.new_entry_email(entry).deliver_now
+		write_to_console
+		UserMailer.new_entry_email(@entry).deliver_now
 	end
 
-	def write_to_console entry
+	def write_to_console
 		Rails.logger = Logger.new(STDOUT)
-		puts "Email sent for ====> #{entry.title} \n"
+		puts "Email sent for ====> #{@entry.title} \n"
 	end
 
 end
