@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'admin/entries#index'
   get 'scrape', to: 'scraper#scrape'
+  get 'sample', to: 'scraper#sample'
 
 end

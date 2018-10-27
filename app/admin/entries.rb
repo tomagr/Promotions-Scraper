@@ -24,6 +24,7 @@ ActiveAdmin.register Entry do
 		column :created_at
 		column :updated_at
 		column :released_at
+		column :email_sent
 		actions
 	end
 
@@ -44,10 +45,14 @@ ActiveAdmin.register Entry do
 		attributes_table_for entity do
 			row :title
 			row :status
+			row :status
+			row :email_sent
 			row :site_link do
 				link_to entity.site_link, entity.site_link
 			end
 			row :created_at
+			row :updated_at
+			row :released_at
 		end
 
 	end

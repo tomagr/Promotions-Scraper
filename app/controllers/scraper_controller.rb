@@ -1,8 +1,6 @@
 class ScraperController < ApplicationController
 
-	def list
-		#Get available first
-		@entries = Entry.all.order('id DESC').limit(20)
+	def sample
 	end
 
 	def scrape

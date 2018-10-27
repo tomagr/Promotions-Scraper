@@ -15,7 +15,7 @@ set :deploy_to, '/srv/rails/scraper'
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
+# server sample. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
 server '174.129.91.31', user: 'deploy', roles: %w{web app}, my_property: :my_value

@@ -18,6 +18,7 @@ class SendAlert < Interactor
 	def send_alert_if_available
 		write_to_console
 		UserMailer.new_entry_email(@entry).deliver_now
+		@entry.update_attributes(:released_at => DateTime.now, :email_sent => true)
 	end
 
 	def write_to_console

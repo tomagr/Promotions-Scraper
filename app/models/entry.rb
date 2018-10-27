@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  released_at :datetime
+#  email_sent  :boolean          default(FALSE)
 #
 
 class Entry < ApplicationRecord
