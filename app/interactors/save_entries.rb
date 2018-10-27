@@ -1,5 +1,7 @@
 class SaveEntries < Interactor
 
+	@@last_id = 0
+
 	def self.save(entries:)
 		save_entries = new(entries: entries)
 		save_entries.execute
@@ -39,6 +41,8 @@ class SaveEntries < Interactor
 		else
 			update_entry status, site_id
 		end
+
+		@@last_id = site_id
 	end
 
 	def create_entry title, status, site_id
@@ -48,7 +52,10 @@ class SaveEntries < Interactor
 
 	def update_entry status, site_id
 		entry = Entry.find_by_site_id site_id
-		if entry.status != status
+		# Check if status changed,
+		# or if the emails has not been sent and the id is
+		# the same as last one (more than one in the page)
+		if entry.status != status or (!entry.email_sent and @@last_id == site_id)
 			entry.update_attributes(:status => status)
 			send_alert_if_available entry
 		end
