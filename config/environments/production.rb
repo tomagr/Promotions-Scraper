@@ -35,7 +35,7 @@ Rails.application.configure do
 		:authentication => "plain"
 	}
 
-	#config.log_level = :error
+	config.log_level = :error
 
 	config.log_tags = [:request_id]
 
