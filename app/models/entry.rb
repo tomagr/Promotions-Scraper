@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  released_at :datetime
 #  email_sent  :boolean          default(FALSE)
+#  featured    :boolean          default(FALSE)
 #
 
 class Entry < ApplicationRecord

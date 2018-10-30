@@ -1,5 +1,5 @@
 ActiveAdmin.register Entry do
-	permit_params :title, :status, :date, :site_id
+	permit_params :title, :status, :featured
 
 	scope('today', default: true) do |entity|
 		entity.available
@@ -19,7 +19,11 @@ ActiveAdmin.register Entry do
 
 	index do
 		selectable_column
-		column :title
+		column :title do |entity|
+			title = entity.title
+			title += entity.featured? ? ' (*)' : ''
+			title
+		end
 		column :status
 		column :created_at
 		column :updated_at
@@ -36,6 +40,7 @@ ActiveAdmin.register Entry do
 		f.inputs do
 			f.input :title
 			f.input :status
+			f.input :featured
 		end
 		f.actions
 	end
@@ -53,6 +58,7 @@ ActiveAdmin.register Entry do
 			row :created_at
 			row :updated_at
 			row :released_at
+			row :featured
 		end
 
 	end
