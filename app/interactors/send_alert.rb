@@ -16,14 +16,30 @@ class SendAlert < Interactor
 	private
 
 	def send_alert_if_available
-		write_to_console
-		UserMailer.new_entry_email(@entry).deliver_now
+		log_entry_message
+		send_entry_email
 		@entry.update_attributes(:released_at => DateTime.now, :email_sent => true)
+		send_special_alert if @entry.featured?
 	end
 
-	def write_to_console
-		Rails.logger = Logger.new(STDOUT)
+	def send_special_alert
+		5.times do
+			write_to_console '===== Special Alert ====='
+			send_entry_email
+		end
+	end
+
+	def log_entry_message
 		puts "Email sent for ====> #{@entry.title} \n"
+	end
+
+	def write_to_console message
+		Rails.logger = Logger.new(STDOUT)
+		puts message
+	end
+
+	def send_entry_email
+		UserMailer.new_entry_email(@entry).deliver_now
 	end
 
 end
