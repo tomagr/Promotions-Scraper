@@ -1,7 +1,7 @@
 lock '3.7.1'
 
 set :application, 'Scraper'
-set :repo_url, 'git@bitbucket.org:agrimbautomas/scraper.git'
+set :repo_url, 'git@gitlab.com:agrimbautomas/Scraper.git'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
