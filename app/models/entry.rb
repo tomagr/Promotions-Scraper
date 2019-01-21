@@ -28,6 +28,10 @@ class Entry < ApplicationRecord
 		parsed_entry.css('figcaption').present? and parsed_entry.css('figcaption').text == 'Reservá ahora'
 	end
 
+	def has_not_sent_email
+		!self.email_sent
+	end
+
 	scope :available, -> {
 		where('status != "this_week"')
 			.where('status != "coming"')
