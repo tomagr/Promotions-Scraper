@@ -19,7 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.minutes do
+#At every minute past every hour from 7 through 23.
+# Every minute form 7hs to 23hs
+every '* 07-23 * * *' do
   rake "scraper:entries", :environment => 'production'
 end
 
