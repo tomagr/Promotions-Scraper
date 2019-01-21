@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.seconds do
+every 1.minutes do
   rake "scraper:entries", :environment => 'production'
 end
 
