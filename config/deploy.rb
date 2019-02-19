@@ -1,4 +1,3 @@
-lock '3.7.1'
 
 set :application, 'Scraper'
 set :repo_url, 'git@gitlab.com:agrimbautomas/Scraper.git'
@@ -9,7 +8,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
                                                'vendor/bundle', 'public/system', 'key',
 																							 'certificates', 'challenge', 'config/settings')
 set :keep_releases, 1
-
+set :rvm_ruby_version, '2.5.1'
 
 namespace :deploy do
 
