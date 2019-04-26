@@ -4,7 +4,9 @@ class UserMailer < ApplicationMailer
 	def new_entry_email(entry)
 		@entry = entry
 
-		mail_to = Subscriber.where(:available => true).map(&:email).join(', ')
+		mail_to = Subscriber.where(:available => true)
+									.order(created_at: 'asc')
+									.map(&:email).join(', ')
 		#mail_to = 'tomas@theamalgama.com'
 
 		mail(bcc: mail_to, subject: 'RatAlert - ' + entry.title)
