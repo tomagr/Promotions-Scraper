@@ -413,3 +413,6 @@ config/settings/staging.yml
 config/settings/production.yml
 
 dump.rdb
+
+
+.idea/
