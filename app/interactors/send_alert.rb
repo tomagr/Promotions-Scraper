@@ -10,23 +10,15 @@ class SendAlert < Interactor
 	end
 
 	def execute
-		send_alert_if_available
+		send_alert
 	end
 
 	private
 
-	def send_alert_if_available
+	def send_alert
 		log_entry_message
 		send_entry_email
 		@entry.update_attributes(:released_at => DateTime.now, :email_sent => true)
-		send_special_alert if @entry.featured?
-	end
-
-	def send_special_alert
-		5.times do
-			write_to_console '===== Special Alert ====='
-			send_entry_email
-		end
 	end
 
 	def log_entry_message
@@ -39,7 +31,7 @@ class SendAlert < Interactor
 	end
 
 	def send_entry_email
-		UserMailer.new_entry_email(@entry).deliver_now
+		SendEmailToSubcribers.for(entry: @entry)
 	end
 
 end
