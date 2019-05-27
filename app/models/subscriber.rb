@@ -19,4 +19,9 @@ class Subscriber < ApplicationRecord
 	validates :email, presence: true,
 		uniqueness: true, length: { maximum: 255 }
 
+	scope :available, -> {
+		where('available = true')
+	}
+
+
 end

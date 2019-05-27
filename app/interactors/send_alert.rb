@@ -31,7 +31,7 @@ class SendAlert < Interactor
 	end
 
 	def send_entry_email
-		SendEmailToSubcribers.for(entry: @entry)
+		SendEmailToSubscribers.for(entry: @entry)
 	end
 
 end

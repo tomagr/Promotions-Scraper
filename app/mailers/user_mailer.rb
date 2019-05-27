@@ -1,14 +1,11 @@
 class UserMailer < ApplicationMailer
 	default from: 'scraper@papensen.com'
 
-	def new_entry_email(entry)
+	def new_entry_email(entry:, subscriber:)
 		@entry = entry
+		@subscriber = subscriber
 
-		mail_to = Subscriber.where(:available => true)
-									.order(created_at: 'asc')
-									.map(&:email).join(', ')
-		#mail_to = 'tomas@theamalgama.com'
-
+		mail_to = @subscriber.email
 		mail(bcc: mail_to, subject: 'RatAlert - ' + entry.title)
 	end
 

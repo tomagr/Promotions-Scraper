@@ -1,4 +1,4 @@
-class SendEmailToSubcribers < Interactor
+class SendEmailToSubscribers < Interactor
 
 	def self.for(entry:)
 		send_alert = new(entry: entry)
@@ -10,7 +10,9 @@ class SendEmailToSubcribers < Interactor
 	end
 
 	def execute
-		UserMailer.new_entry_email(@entry).deliver_now
+		Subscriber.available.each do |subscriber|
+			UserMailer.new_entry_email(entry: @entry, subscriber: subscriber).deliver_now
+		end
 	end
 
 end
