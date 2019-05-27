@@ -6,7 +6,7 @@ services:
     stdin_open: ${DOCKERTTY}
     tty: ${DOCKERTTY}
     volumes:
-      - .:/usr/src/app
+      - ./:/usr/src/scraper
       - ~/.ssh:/root/.ssh
       - ./public/system:/usr/src/app/public/system
     ports:
