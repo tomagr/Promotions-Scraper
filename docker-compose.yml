@@ -5,27 +5,19 @@ services:
     build: .
     stdin_open: ${DOCKERTTY}
     tty: ${DOCKERTTY}
-    user: 1000:1000
     volumes:
       - .:/usr/src/app
       - ~/.ssh:/root/.ssh
       - ./public/system:/usr/src/app/public/system
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
-      - scraper-db
-    env_file:
-      - '.env'
+      - db
 
-  scraper-db:
+  db:
     container_name: scraper_db
     image: mysql:5.7.22
-    user: 1000:1000
-    ports:
-      - 3306
     environment:
       MYSQL_ROOT_PASSWORD: sinclair
     volumes:
       - ./db/data:/var/lib/mysql
-    env_file:
-      - '.env'
