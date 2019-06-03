@@ -39,7 +39,7 @@ require 'support/factory_girl'
 require 'json_matchers/rspec'
 
 RSpec.configure do |config|
-  config.include Paperclip::Shoulda::Matchers
+
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.expect_with :rspec do |expectations|

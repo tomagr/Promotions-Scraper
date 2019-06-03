@@ -4,7 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  email      :string(255)
-#  available  :boolean          not null
+#  available  :boolean          default(TRUE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  name       :string(255)      not null

@@ -16,6 +16,6 @@
 class SubscriberFilter < ApplicationRecord
 
 	belongs_to :subscriber
-	validates :name, uniqueness: { scope: :subscriber }, presence: true
+	validates :name, uniqueness: { scope: :subscriber }, presence: true, length: { maximum: 255 }
 
 end
