@@ -46,6 +46,9 @@ gem 'active_material', github: 'vigetlabs/active_material'
 
 gem 'nokogiri'
 
+# For the js runtime
+gem 'therubyracer', platforms: :ruby
+
 #Cron Job
 gem 'whenever', :require => false
 

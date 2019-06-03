@@ -64,7 +64,7 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null
@@ -92,7 +92,7 @@
         null,
         null,
         1,
-        0,
+        2,
         null,
         null,
         1,
@@ -181,6 +181,10 @@
         null,
         1,
         4,
+        4,
+        null,
+        0,
+        null,
         null,
         null
       ],
@@ -211,6 +215,27 @@
         null,
         null
       ],
+      "/usr/src/scraper/app/interactors/send_email_to_subscribers.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null
+      ],
       "/usr/src/scraper/app/models/subscriber_filter.rb": [
         null,
         null,
@@ -233,8 +258,32 @@
         1,
         null,
         null
+      ],
+      "/usr/src/scraper/app/mailers/user_mailer.rb": [
+        1,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/usr/src/scraper/app/mailers/application_mailer.rb": [
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1559571298
+    "timestamp": 1559575275
   }
 }

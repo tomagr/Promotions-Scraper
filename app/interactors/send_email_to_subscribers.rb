@@ -1,4 +1,5 @@
 class SendEmailToSubscribers < Interactor
+	validates :entry, presence: true
 
 	def self.for(entry:)
 		send_alert = new(entry: entry)
