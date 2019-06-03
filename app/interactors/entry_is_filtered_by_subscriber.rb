@@ -1,4 +1,5 @@
 class EntryIsFilteredBySubscriber < Interactor
+	include ApplicationHelper
 
 	def self.for(entry:, subscriber:)
 		send_alert = new(entry: entry, subscriber: subscriber)
@@ -11,7 +12,7 @@ class EntryIsFilteredBySubscriber < Interactor
 	end
 
 	def execute
-		@subscriber.filters.map(&:name).any? { |f| @entry.title.downcase.include? f.downcase }
+		@subscriber.filters.map(&:name).any? { |tag| strip_chars(@entry.title).include? strip_chars(tag) }
 	end
 
 end
