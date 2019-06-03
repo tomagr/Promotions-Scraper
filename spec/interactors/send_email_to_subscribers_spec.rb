@@ -8,13 +8,16 @@ RSpec.shared_examples 'SendEmailToSubscribers is succesful' do
 	end
 end
 
-RSpec.shared_examples 'SendEmailToSubscribers raise error' do |error|
-	it { expect { send_emails }.to raise_exception error }
+RSpec.shared_examples 'SendEmailToSubscribers is succesful but filtered' do
+	it 'emails are not sent to the subscribers with matching filters' do
+		expect { @emails = send_emails }.to change { ActionMailer::Base.deliveries.count }.by(1)
+	end
 end
+
 
 RSpec.describe SendEmailToSubscribers do
 
-	include_context 'create entry'
+	let(:entry) { Entry.create!(title: 'El Candidado, Moldavsky 2019', site_id: 4355) }
 
 	let!(:subscriber1) { create :subscriber }
 	let!(:subscriber2) { create :subscriber }
@@ -23,6 +26,13 @@ RSpec.describe SendEmailToSubscribers do
 
 	context 'with correct params' do
 		include_examples 'SendEmailToSubscribers is succesful'
+
+		context 'with correct params' do
+			before {
+				subscriber1.filters.create!(:name => 'moldavsky')
+			}
+			include_examples 'SendEmailToSubscribers is succesful but filtered'
+		end
 	end
 
 end
