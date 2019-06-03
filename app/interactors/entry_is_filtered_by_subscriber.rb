@@ -11,7 +11,7 @@ class EntryIsFilteredBySubscriber < Interactor
 	end
 
 	def execute
-		@subscriber.filters.map(&:name).any?{ |f| title.downcase.include? f.downcase }
+		@subscriber.filters.map(&:name).any? { |f| @entry.title.downcase.include? f.downcase }
 	end
 
 end
