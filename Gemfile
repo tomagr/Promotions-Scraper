@@ -56,6 +56,10 @@ gem 'listen', '~> 3.0.5'
 
 gem 'mysql2', '~> 0.5.2'
 
+gem 'rubocop', require: false
+gem 'rubycritic', require: false
+gem 'web-console', '>= 3.3.0'
+
 group :development, :test do
 	gem 'byebug'
 	gem 'spring'
@@ -68,11 +72,11 @@ group :development, :test do
 	gem 'shoulda-matchers', '~> 3.1'
 	gem 'rspec-rails'
 	gem 'rspec-collection_matchers'
-	gem 'rubycritic', :require => false
 
 	gem 'simplecov'
 	gem 'factory_bot_rails'
 	gem 'json_matchers'
+	gem 'rubocop-rspec', require: false
 
 	# Error log
 	gem 'better_errors'
