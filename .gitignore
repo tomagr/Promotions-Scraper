@@ -28,7 +28,7 @@ config/secrets.yml
 /config/database.yml
 
 reports/
-
+test_output/
 # Created by https://www.gitignore.io/api/vim,ruby,linux,emacs,macos,windows,eclipse,intellij,rubymine,sublimetext,visualstudiocode
 
 ### Eclipse ###

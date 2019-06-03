@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'contexts/for_models'
 
 RSpec.shared_examples 'SendEmailToSubscribers is succesful' do
-	it 'the creation is succesful and the owner was added as a member' do
+	it 'all the emails are sent to the subscribers' do
 		total_subscribers = Subscriber.count
 		expect { @emails = send_emails }.to change { ActionMailer::Base.deliveries.count }.by(total_subscribers)
 	end

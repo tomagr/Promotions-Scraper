@@ -9,8 +9,7 @@ variables:
    MYSQL_HOST: "mysql"
    MYSQL_PASSWORD: "sinclair"
    MYSQL_ROOT_PASSWORD: "sinclair"
-   MYSQL_DATABASE: "lazlo_test"
-   MYSQL_USER: "test"
+   MYSQL_DATABASE: "scraper_test"
 
 before_script:
    - cp config/database.yml.example config/database.yml

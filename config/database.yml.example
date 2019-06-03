@@ -14,7 +14,7 @@ development:
 
 staging:
   <<: *default
-  database: scraper_dev
+  database: scraper_stg
 
 test:
   <<: *default
