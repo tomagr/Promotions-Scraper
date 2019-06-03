@@ -54,15 +54,29 @@ gem 'listen', '~> 3.0.5'
 gem 'mysql2', '~> 0.5.2'
 
 group :development, :test do
-	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
-	gem 'byebug', platform: :mri
+	gem 'byebug'
+	gem 'spring'
 
-	gem 'rspec-rails'
-	gem 'fuubar'
 	gem 'capistrano', '~> 3.1'
 	gem 'capistrano-rails', '~> 1.1'
 	gem 'capistrano3-puma'
 	gem 'capistrano-rvm'
+
+	gem 'shoulda-matchers', '~> 3.1'
+	gem 'rspec-rails'
+	gem 'rspec-collection_matchers'
+	gem 'rubycritic', :require => false
+
+	gem 'simplecov'
+	gem 'factory_bot_rails'
+	gem 'json_matchers'
+
+	# Error log
+	gem 'better_errors'
+	gem 'fuubar'
+
+	gem 'pry'
+	gem 'pry-rails'
 end
 
 group :development do

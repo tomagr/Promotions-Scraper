@@ -1,5 +1,6 @@
 ActiveAdmin.register Subscriber do
-	permit_params :name, :email, :available
+	permit_params :name, :email, :available,
+			filters_attributes: [:id, :name, :_destroy]
 
 	#
 	# Filters and Actions
@@ -35,12 +36,23 @@ ActiveAdmin.register Subscriber do
 	filter :created_at
 
 	form do |f|
-		f.inputs do
-			f.input :name
-			f.input :email
-			f.input :available, :as => :boolean, :input_html => { :checked => 'checked' }
+		f.semantic_errors
+		f.object.errors.keys
+
+		inputs do
+			input :name
+			input :email
+			input :available, :as => :boolean, :input_html => { :checked => 'checked' }
 		end
-		f.actions
+
+		inputs do
+			f.has_many :filters, allow_destroy: true, new_record: true do |a|
+				a.input :name
+			end
+		end
+
+		actions
+
 	end
 
 	show do |subscriber|
@@ -49,6 +61,12 @@ ActiveAdmin.register Subscriber do
 			row :name
 			row :email
 			row :available
+		end
+
+
+		h3 'Filters'
+		subscriber.filters.each do |filter|
+			ul { filter.name }
 		end
 
 
