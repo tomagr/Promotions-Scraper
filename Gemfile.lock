@@ -85,6 +85,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.12)
+    bcrypt_pbkdf (1.0.1)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -167,6 +168,7 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.5, >= 0.5.0)
       dry-types (~> 0.14.0)
+    ed25519 (1.2.4)
     equalizer (0.0.11)
     erubi (1.8.0)
     erubis (2.7.0)
@@ -444,6 +446,7 @@ DEPENDENCIES
   active_material!
   activeadmin!
   annotate
+  bcrypt_pbkdf
   better_errors
   byebug
   capistrano (~> 3.1)
@@ -453,6 +456,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
+  ed25519
   factory_bot_rails
   fuubar
   jbuilder (~> 2.5)

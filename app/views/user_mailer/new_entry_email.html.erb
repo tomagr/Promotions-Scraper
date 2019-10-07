@@ -12,7 +12,7 @@
     color: #4a4a4a;
     font-family: monospace;">
   Hola Hola
-  <% if @subscriber.name.present? %>
+  <% if @subscriber.respond_to?(:name) and @subscriber.name.present? %>
     <%= @subscriber.name %>
   <% end %>
   !
