@@ -79,7 +79,7 @@ class SaveEntries < Interactor
 	end
 
 	def is_today? entry
-		entry.status == 'today'
+		!(entry.status =~ /HOY/i).nil?
 	end
 
 	def entry_is_available?
