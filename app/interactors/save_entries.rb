@@ -67,7 +67,7 @@ class SaveEntries < Interactor
 	end
 
 	def is_an_available_entry? entry
-		@@last_id == entry.site_id or entry.status == 'today'
+		@@last_id == entry.site_id or is_today?(entry)
 	end
 
 	def send_alert_if_available entry

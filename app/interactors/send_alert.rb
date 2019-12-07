@@ -16,6 +16,7 @@ class SendAlert < Interactor
 	private
 
 	def send_alert
+		puts "Sending email for ====> #{@entry.title} \n"
 		send_entry_email
 		@entry.update_attributes(:released_at => DateTime.now, :email_sent => true)
 	end
