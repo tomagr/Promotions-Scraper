@@ -56,14 +56,14 @@ class SaveEntries < Interactor
 		# or if the emails has not been sent and the id is
 		# the same as last one (more than one in the page)
 
-		if has_not_been_notified entry, status
+		if has_not_been_notified entry
 			entry.update_attributes(:status => status)
 			send_alert_if_available entry
 		end
 	end
 
-	def has_not_been_notified entry, status
-		entry.status != status or (entry.has_not_sent_email and is_an_available_entry? entry)
+	def has_not_been_notified entry
+		entry.has_not_sent_email and is_an_available_entry? entry
 	end
 
 	def is_an_available_entry? entry

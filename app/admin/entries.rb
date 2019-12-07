@@ -1,5 +1,5 @@
 ActiveAdmin.register Entry do
-  permit_params :title, :status, :featured
+  permit_params :title, :status, :featured, :email_sent
 
   ############# Scopes #############
   scope('today', default: true) do |entity|
@@ -58,6 +58,7 @@ ActiveAdmin.register Entry do
       f.input :title
       f.input :status
       f.input :featured
+      f.input :email_sent
     end
     f.actions
   end
