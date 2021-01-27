@@ -8,7 +8,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
                                                'vendor/bundle', 'public/system', 'key',
 																							 'certificates', 'challenge', 'config/settings')
 set :keep_releases, 1
-set :rvm_ruby_version, '2.7.1'
+set :rvm_ruby_version, '2.6.3'
 
 namespace :deploy do
 
