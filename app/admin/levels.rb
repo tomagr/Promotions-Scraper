@@ -11,14 +11,14 @@ ActiveAdmin.register Level do
     actions
   end
 
-
   ############# Form #############
   form do |f|
     f.inputs do
       f.input :priority
-      f.input :text
-      f.input :code
+      f.input :clue
+      f.input :code, :input_html => { :class => 'autogrow', :rows => 1, :cols => 2, :maxlength => 6 }
       f.input :solved
+
     end
     f.actions
   end

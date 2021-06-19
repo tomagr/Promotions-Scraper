@@ -4,7 +4,11 @@
 </header>
 
 <div class="containers-frame">
-  <div id="timer-container">00:00:00</div>
+
+  <div class="clue">
+    <%= @clue.clue %>
+  </div>
+
   <div class="inputs-container">
     <input maxlength="1">
     <input maxlength="1">
@@ -14,8 +18,11 @@
     <input maxlength="1">
     <input maxlength="1">
   </div>
-  <button id="send-code">Enviar</button>
-  <div class="clue">Una clue</div>
+
+
+
+  <button id="send-code">Validar código</button>
+
   <div class="notification"></div>
 </div>
 
