@@ -194,7 +194,7 @@ video#quest-video {
 }
 
 
-@media (min-height: 600px) {
+@media (max-width: 600px) {
   .inputs-container {
     display: grid;
     grid-template-columns: repeat(6, auto);
