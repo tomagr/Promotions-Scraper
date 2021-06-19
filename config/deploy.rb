@@ -10,17 +10,12 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 1
 set :rvm_ruby_version, '2.6.3'
 
-namespace :deploy do
+namespace :puma do
+  Rake::Task[:restart].clear_actions
 
-  desc 'Restart application'
-
-  desc 'Update Cron Jobs'
-  task :update_crontabs do
-    on roles(:app), in: :sequence, wait: 5 do
-      exec 'whenever --update-crontab'
-    end
+  desc 'Force puma restart'
+  task :restart do
+    invoke 'puma:stop'
+    invoke 'puma:start'
   end
-
-  after :publishing, :restart
-
 end
