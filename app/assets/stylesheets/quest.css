@@ -1,0 +1,193 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Rubik', sans-serif;
+    background: #3c4555;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+header {
+
+}
+
+header .error-bar {
+    background: #3c4555;
+    color: white;
+    border-bottom: 2px solid white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    left: 0px;
+    z-index: 99;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    height: 18px;
+    line-height: 1em;
+    top: -60px;
+}
+
+header .error-bar span {
+
+}
+
+header {
+    text-align: center;
+    margin: 50px auto;
+}
+
+header h1 {
+    text-align: center;
+    color: #ff7b7b;
+    font-weight: 300;
+    font-size: 3.2rem;
+    font-family: 'Monoton', cursive;
+}
+
+header h2 {
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-style: italic;
+    margin: 20px auto;
+}
+
+
+/************ Containers Frame ************/
+.containers-frame {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.inputs-container {
+    display: inline-block;
+    text-align: center;
+    margin: 100px auto 20px;
+    width: 100%;
+}
+
+.containers-frame #timer-container {
+    font-size: 3rem;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    margin: 30px auto 0px;
+}
+
+.inputs-container input {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    width: 70px;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    border-radius: 4px;
+}
+
+.containers-frame button {
+    font-size: 1.1rem;
+    text-align: center;
+    width: auto;
+    padding: 10px 20px;
+    font-family: 'Rubik', sans-serif;
+    margin: 60px auto 0px;
+    cursor: pointer;
+    background: #98b9f5;
+    color: #3c4555;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.containers-frame .notification {
+    font-size: 1.1rem;
+    text-align: center;
+    width: auto;
+    padding: 16px 20px;
+    font-family: 'Rubik', sans-serif;
+    margin: 60px auto 0px;
+    cursor: pointer;
+    color: #3c4555;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    display: none;
+}
+
+.containers-frame .clue {
+    font-size: 1.2rem;
+    text-align: center;
+    width: auto;
+    font-family: 'Rubik', sans-serif;
+    margin: 60px auto 0px;
+    color: #fe7a7b;
+}
+
+video{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    display: none;
+}
+
+video#quest-video{
+
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-height: 600px) {
+}
+
+@media (max-width: 600px) {
+}

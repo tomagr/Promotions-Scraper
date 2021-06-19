@@ -41,7 +41,8 @@ gem 'annotate'
 gem 'devise'
 
 # Active admin, url: https://github.com/activeadmin/activeadmin
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '1.3.0'
+
 
 # url: https://github.com/activeadmin-plugins/active_material
 gem 'active_material', github: 'vigetlabs/active_material'
