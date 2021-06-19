@@ -1,5 +1,3 @@
-const exitCode = '152BTH';
-
 var $notification;
 var $button;
 
@@ -41,10 +39,6 @@ function eraseInputs() {
   $('input').val('');
   $('input:first-child').focus();
   keys = [];
-}
-
-function codeIsValid() {
-  return getCode().toUpperCase() == exitCode;
 }
 
 function displayErrorMessage( message ) {
