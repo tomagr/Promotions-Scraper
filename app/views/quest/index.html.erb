@@ -7,7 +7,7 @@
 
   <div class="clue">
     <% if @clue&.clue.present? %>
-      <%= @clue.clue %>
+      <%= @clue.priority %>. <%= @clue.clue %>
     <% else %>
       Muy bien Flancito, terminaste el Roundie challenge!
     <% end %>
