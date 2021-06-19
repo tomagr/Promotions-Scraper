@@ -6,7 +6,7 @@ $(document).ready(function () {
   $button = $('#send-code');
 
 
-  setupButton();
+  // setupButton();
   setupFocusInputs();
 });
 
@@ -18,8 +18,7 @@ function setupFocusInputs() {
 
 	if (value !== "") {
 	  $(this).next().focus();
-	  //console.log('value', value);
-	  hideMessage();
+	  // hideMessage();
 	}
   });
 }

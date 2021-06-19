@@ -1,4 +1,6 @@
 ActiveAdmin.register Level do
+  menu false
+
   permit_params :priority, :clue, :code, :solved
 
   ############# Index #############

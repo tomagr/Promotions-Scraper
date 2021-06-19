@@ -6,24 +6,38 @@
 <div class="containers-frame">
 
   <div class="clue">
-    <%= @clue.clue %>
-  </div>
-
-  <div class="inputs-container">
-    <input maxlength="1">
-    <input maxlength="1">
-    <input maxlength="1">
-
-    <input maxlength="1">
-    <input maxlength="1">
-    <input maxlength="1">
+    <% if @clue&.clue.present? %>
+      <%= @clue.clue %>
+    <% else %>
+      Muy bien Flancito, terminaste el Roundie challenge!
+    <% end %>
   </div>
 
 
+  <%= form_for :quest, url: post_quest_path, method: :post do |form| %>
+    <div class="inputs-container">
 
-  <button id="send-code">Validar código</button>
+      <input name="l1" maxlength="1">
+      <input name="l2" maxlength="1">
+      <input name="l3" maxlength="1">
 
-  <div class="notification"></div>
+      <input name="l4" maxlength="1">
+      <input name="l5" maxlength="1">
+      <input name="l6" maxlength="1">
+    </div>
+
+
+    <% unless @error.nil? %>
+      <% if @error %>
+        <div class="notification"><%= @error_message %></div>
+      <% else %>
+        <div class="notification success"><%= @error_message %></div>
+      <% end %>
+    <% end %>
+    <%= form.submit %>
+  <% end %>
+
+
 </div>
 
 
