@@ -20,8 +20,8 @@ var poorly = '190,80,79,79,82,76,89';
 var enter = '13';
 
 jQuery(document).ready(function () {
-  $videoIntro = $('#quest-video');
-  $videoFinal = $('#final-video');
+  // $videoIntro = $('#quest-video');
+  // $videoFinal = $('#final-video');
 
   readKeys();
 });
@@ -73,12 +73,12 @@ function playIfClown( insertedKeys ) {
   }
 }
 
-function playIfIntro( insertedKeys ) {
-  if (insertedKeys.indexOf(intro) >= 0) {
-	playIntro();
-	keys = [];
-  }
-}
+// function playIfIntro( insertedKeys ) {
+//   if (insertedKeys.indexOf(intro) >= 0) {
+// 	playIntro();
+// 	keys = [];
+//   }
+// }
 
 function playIfGpaul( insertedKeys ) {
   if (insertedKeys.indexOf(gpaul) >= 0) {
@@ -113,17 +113,17 @@ function playClown() {
 }
 
 
-function playIntro() {
-  $videoIntro.show();
-  const introVideo = document.getElementById('quest-video');
-  introVideo.play();
-  introVideo.onended = function () {
-	location.reload();
-  };
-}
+// function playIntro() {
+//   $videoIntro.show();
+//   const introVideo = document.getElementById('quest-video');
+//   introVideo.play();
+//   introVideo.onended = function () {
+// 	location.reload();
+//   };
+// }
 
 
-function playEnding() {
-  $videoFinal.show();
-  document.getElementById('final-video').play();
-}
+// function playEnding() {
+//   $videoFinal.show();
+//   document.getElementById('final-video').play();
+// }
