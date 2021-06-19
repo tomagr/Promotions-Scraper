@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # root to: 'admin/entries#index'
-  get 'scrape', to: 'scraper#scrape', as: 'scrape'
+  root to: 'quest#index'
 
-  get 'quest', to: 'quest#index', as: :quest
+  get 'scrape', to: 'scraper#scrape', as: 'scrape'
 
 end
