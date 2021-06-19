@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/mimemagicrb/mimemagic.git
+  revision: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
+  ref: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
+  specs:
+    mimemagic (0.3.5)
+
+GIT
   remote: git://github.com/vigetlabs/active_material.git
   revision: 54116c4650f889f9018b8cd9fdb30874b94454f4
   specs:
@@ -238,9 +245,6 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.10)
-      nokogiri (~> 1)
-      rake
     mini_mime (1.1.0)
     mini_portile2 (2.5.3)
     minitest (5.14.4)
@@ -457,6 +461,7 @@ DEPENDENCIES
   jquery-rails
   json_matchers
   listen (~> 3.0.5)
+  mimemagic!
   mysql2 (~> 0.5.3)
   nokogiri
   pry

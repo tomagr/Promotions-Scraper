@@ -43,6 +43,7 @@ gem 'devise'
 # Active admin, url: https://github.com/activeadmin/activeadmin
 gem 'activeadmin', '1.3.0'
 
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 # url: https://github.com/activeadmin-plugins/active_material
 gem 'active_material', github: 'vigetlabs/active_material'
