@@ -3,6 +3,15 @@
   <h2>In Search of the Unknown</h2>
 </header>
 
+
+<!--<audio id="audio-noti" src="<%#= asset_path('clue.mp3') %>" preload="auto"></audio>-->
+<!--<audio id="audio-kwi" src="<%#= asset_path('kwi.mp3') %>" preload="auto"></audio>-->
+
+<!--<audio id="audio-gpaul" src="<%#= asset_path('gpaul.mp3') %>" preload="auto"></audio>-->
+<!--<audio id="audio-gpol" src="<%#= asset_path('gpol.mp3') %>" preload="auto"></audio>-->
+<!--<audio id="audio-wisely" src="<%#= asset_path('wisely.mp3') %>" preload="auto"></audio>-->
+<!--<audio id="audio-poorly" src="<%#= asset_path('poorly.mp3') %>" preload="auto"></audio>-->
+
 <div class="containers-frame">
 
   <div class="clue">
@@ -30,8 +39,14 @@
     <% unless @error.nil? %>
       <% if @error %>
         <div class="notification"><%= @error_message %></div>
+        <audio autoplay>
+          <source src="<%= asset_path('clown.mp3') %>" type="audio/mp3">
+        </audio>
       <% else %>
         <div class="notification success"><%= @error_message %></div>
+        <audio autoplay>
+          <source src="<%= asset_path('wisely.mp3') %>" type="audio/mp3">
+        </audio>
       <% end %>
     <% end %>
     <%= form.submit(:value => "Validar Código") %>
@@ -40,11 +55,3 @@
 
 </div>
 
-
-<audio id="audio-noti" src="<%= asset_path('clue.mp3') %>" preload="auto"></audio>
-<audio id="audio-kwi" src="<%= asset_path('kwi.mp3') %>" preload="auto"></audio>
-<audio id="audio-clown" src="<%= asset_path('clown.mp3') %>" preload="auto"></audio>
-<audio id="audio-gpaul" src="<%= asset_path('gpaul.mp3') %>" preload="auto"></audio>
-<audio id="audio-gpol" src="<%= asset_path('gpol.mp3') %>" preload="auto"></audio>
-<audio id="audio-wisely" src="<%= asset_path('wisely.mp3') %>" preload="auto"></audio>
-<audio id="audio-poorly" src="<%= asset_path('poorly.mp3') %>" preload="auto"></audio>

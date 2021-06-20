@@ -23,7 +23,7 @@ jQuery(document).ready(function () {
   // $videoIntro = $('#quest-video');
   // $videoFinal = $('#final-video');
 
-  readKeys();
+  // readKeys();
 });
 
 function readKeys() {
