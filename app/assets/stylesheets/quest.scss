@@ -150,35 +150,38 @@ header h2 {
   font-weight: normal;
 }
 
-.containers-frame .notification {
-  font-size: 1.1rem;
-  text-align: center;
-  width: auto;
-  padding: 16px 20px;
-  font-family: 'Nova Round', cursive;
-  margin: 20px auto 0px;
-  cursor: pointer;
-  color: #fe7a7b;
-  border: none;
-  outline: none;
-  font-weight: bold;
+.containers-frame {
 
-  &.success {
-    color: #0ebf7f;
-    font-size: 1.6rem;
+  .notification {
+    font-size: 1.1rem;
+    text-align: center;
+    width: auto;
+    padding: 16px 20px;
+    font-family: 'Nova Round', cursive;
+    margin: 20px auto 0px;
+    cursor: pointer;
+    color: #fe7a7b;
+    border: none;
+    outline: none;
+    font-weight: bold;
+
+    &.success {
+      color: #0ebf7f;
+      font-size: 1.6rem;
+    }
   }
 
+  .clue {
+    font-size: 1.4rem;
+    text-align: center;
+    width: auto;
+    font-family: 'Pacifico', sans-serif;
+    margin: 20px auto 0px;
+    color: #0095de;
+    line-height: 2.2rem;
+  }
 }
 
-
-.containers-frame .clue {
-  font-size: 1.4rem;
-  text-align: center;
-  width: auto;
-  font-family: 'Pacifico', sans-serif;
-  margin: 20px auto 0px;
-  color: #0095de;
-}
 
 video {
   width: 100%;

@@ -37,6 +37,7 @@ class QuestController < ApplicationController
   end
 
   def true?(obj)
+    return nil if obj.nil?
     obj.to_s.downcase == "true"
   end
 

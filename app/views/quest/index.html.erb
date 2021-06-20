@@ -16,7 +16,7 @@
 
   <div class="clue">
     <% if @clue&.clue.present? %>
-      <%= @clue.priority %>. <%= @clue.clue %>
+      <%= @clue.priority %>. <%= @clue.clue.gsub('\n', '<br>').html_safe %>
     <% else %>
       Muy bien Flancito, terminaste el Roundie challenge!
     <% end %>
@@ -34,6 +34,7 @@
       <input name="l5" maxlength="1">
       <input name="l6" maxlength="1">
     </div>
+
 
 
     <% unless @error.nil? %>
