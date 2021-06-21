@@ -11,7 +11,7 @@ class QuestController < ApplicationController
   def validate
     @clue = current_clue
 
-    if form_code == current_clue.code
+    if form_code.capitalize == current_clue.code.capitalize
       @error = false
       @error_message = 'Bien Rooooundie, el codigo es correcto!'
       current_clue.update_attributes!(solved: true)
