@@ -124,7 +124,7 @@ header h2 {
 }
 
 .inputs-container input {
-  font-size: 3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
   width: 70px;
@@ -207,8 +207,9 @@ video#quest-video {
 
     input {
       width: 100%;
-      padding: 0 0px;
+      padding: 10px 0px;
       margin: 0px auto;
+      font-size: 1.5rem;
     }
   }
 
