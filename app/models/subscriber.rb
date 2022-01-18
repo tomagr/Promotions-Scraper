@@ -19,10 +19,10 @@ class Subscriber < ApplicationRecord
 	has_many :filters, foreign_key: "subscriber_id", class_name: "SubscriberFilter", dependent: :destroy
 	has_many :wishes, foreign_key: "subscriber_id", class_name: "SubscriberWish", dependent: :destroy
 
-	accepts_nested_attributes_for :filters, :wishes
+	accepts_nested_attributes_for :filters, :wishes, allow_destroy: true
 
 	validates :email, presence: true,
-		uniqueness: true, length: { maximum: 255 }
+						uniqueness: true, length: { maximum: 255 }
 
 	scope :available, -> {
 		where('available = true')

@@ -14,7 +14,7 @@ class SendEmailToSubscribers < Interactor
 		Subscriber.available.each do |subscriber|
 			wish = EntryIsSubscriberWish.for(entry: @entry, subscriber: subscriber)
 			claim_tickets wish if wish.present?
-
+			
 			filter_entry = EntryIsFilteredBySubscriber.for(entry: @entry, subscriber: subscriber)
 			send_entry_email(subscriber) unless filter_entry
 		end

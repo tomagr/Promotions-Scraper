@@ -46,13 +46,13 @@ ActiveAdmin.register Subscriber do
 			input :available, :as => :boolean, :input_html => { :checked => 'checked' }
 		end
 
-		inputs do
-			f.has_many :wishes, allow_destroy: true, new_record: true do |a|
-				a.input :name
-			end
-			f.has_many :filters, allow_destroy: true, new_record: true do |a|
-				a.input :name
-			end
+
+		f.has_many :wishes, allow_destroy: true, new_record: true do |w|
+			w.input :name
+		end
+
+		f.has_many :filters, allow_destroy: true, new_record: true do |a|
+			a.input :name
 		end
 
 		actions
