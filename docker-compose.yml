@@ -16,7 +16,8 @@ services:
 
   db:
     container_name: scraper_db
-    image: mysql:5.7.22
+    image: mysql:8.0.26
+    platform: linux/x86_64
     environment:
       MYSQL_ROOT_PASSWORD: sinclair
     volumes:
