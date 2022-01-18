@@ -1,7 +1,7 @@
 class PostRequest < DoRequest
 
 	def headers
-		headers = { "Content-Type" => "application/json", "Accept" => "application/json" }
+		headers = { "Content-Type" => "application/x-www-form-urlencoded" }
 		headers["Cookie"] = @cookies unless @cookies.nil?
 		headers
 	end
@@ -9,7 +9,8 @@ class PostRequest < DoRequest
 	private
 
 	def exec_request
-		res = http_request.post(@uri, @params.to_json, headers)
+		encoded_form = URI.encode_www_form(@params)
+		res = http_request.request_post(@uri, encoded_form, headers)
 		res
 	end
 
