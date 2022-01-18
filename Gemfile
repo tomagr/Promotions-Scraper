@@ -53,6 +53,7 @@ gem 'nokogiri'
 # For the js runtime
 gem 'therubyracer', platforms: :ruby
 
+
 #Cron Job
 gem 'whenever', :require => false
 
@@ -66,6 +67,7 @@ gem 'web-console', '>= 3.3.0'
 
 group :development, :test do
 	gem 'byebug'
+	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
 
 	gem 'capistrano', '~> 3.1'
@@ -91,7 +93,5 @@ group :development, :test do
 end
 
 group :development do
-	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-	gem 'spring'
 	gem 'spring-watcher-listen', '~> 2.0.0'
 end
