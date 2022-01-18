@@ -1,6 +1,7 @@
 ActiveAdmin.register Subscriber do
 	permit_params :name, :email, :available,
-			filters_attributes: [:id, :name, :_destroy]
+								wishes_attributes: [:id, :name, :_destroy],
+								filters_attributes: [:id, :name, :_destroy]
 
 	#
 	# Filters and Actions
@@ -46,6 +47,9 @@ ActiveAdmin.register Subscriber do
 		end
 
 		inputs do
+			f.has_many :wishes, allow_destroy: true, new_record: true do |a|
+				a.input :name
+			end
 			f.has_many :filters, allow_destroy: true, new_record: true do |a|
 				a.input :name
 			end
@@ -63,12 +67,15 @@ ActiveAdmin.register Subscriber do
 			row :available
 		end
 
+		h3 'Wishes'
+		subscriber.wishes.each do |filter|
+			ul "#{filter.name} - '#{filter.response}'"
+		end
 
 		h3 'Filters'
 		subscriber.filters.each do |filter|
-			ul { filter.name }
+			ul filter.name
 		end
-
 
 	end
 end

@@ -17,7 +17,9 @@
 class Subscriber < ApplicationRecord
 
 	has_many :filters, foreign_key: "subscriber_id", class_name: "SubscriberFilter", dependent: :destroy
-	accepts_nested_attributes_for :filters
+	has_many :wishes, foreign_key: "subscriber_id", class_name: "SubscriberWish", dependent: :destroy
+
+	accepts_nested_attributes_for :filters, :wishes
 
 	validates :email, presence: true,
 		uniqueness: true, length: { maximum: 255 }

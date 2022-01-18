@@ -22,7 +22,8 @@ class ClaimTickets < BaseInteractor
 	def parse_response response
 		html_text = Nokogiri::HTML(response.body)
 		message = html_text.css('.blog-item-small-content')
-		Rails::Html::FullSanitizer.new.sanitize(message.to_s)
+		text = Rails::Html::FullSanitizer.new.sanitize(message.to_s)
+		text.gsub(/\s+/, " ")
 	end
 
 	def endpoint
