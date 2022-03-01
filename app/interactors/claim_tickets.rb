@@ -20,10 +20,19 @@ class ClaimTickets < BaseInteractor
 	end
 
 	def parse_response response
+		case response.code
+			when "302"
+				"302 - The requested resource has been temporarily moved to a different URI"
+			else
+				parse_response_html response
+		end
+	end
+
+	def parse_response_html response
 		html_text = Nokogiri::HTML(response.body)
 		message = html_text.css('.blog-item-small-content')
 		text = Rails::Html::FullSanitizer.new.sanitize(message.to_s)
-		text.gsub(/\s+/, " ")
+		text.gsub(/\s+/, " ") || "Empty 200 response?"
 	end
 
 	def endpoint
