@@ -1,11 +1,11 @@
 class EntryIsSubscriberWish < Interactor
 	include ApplicationHelper
 
-	def self.for(entry:, subscriber:)
-		new(entry: entry, subscriber: subscriber).execute
+	def self.for(entry:)
+		new(entry: entry).execute
 	end
 
-	def initialize(entry:, subscriber:)
+	def initialize(entry:)
 		@entry = entry
 		@subscriber = subscriber
 		@response = nil

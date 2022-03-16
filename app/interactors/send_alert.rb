@@ -16,6 +16,7 @@ class SendAlert < Interactor
 	private
 
 	def send_alert
+		claim_subscriber_tickets
 		puts "Sending email for ====> #{@entry.title} \n"
 		send_entry_email
 		@entry.update_attributes(:released_at => DateTime.now, :email_sent => true)
@@ -24,5 +25,6 @@ class SendAlert < Interactor
 	def send_entry_email
 		SendEmailToSubscribers.for(entry: @entry)
 	end
+
 
 end

@@ -20,10 +20,10 @@ class ScrapeSite < Interactor
 	def scrape_site
 		doc = Nokogiri::HTML(open(@url))
 		entries = doc.css('.blog-post-item')
-		parse_entries entries unless entries.nil?
+		save_entries entries unless entries.nil?
 	end
 
-	def parse_entries entries
+	def save_entries entries
 		SaveEntries.save(entries: entries)
 	end
 

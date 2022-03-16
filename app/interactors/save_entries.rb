@@ -12,15 +12,20 @@ class SaveEntries < Interactor
 	end
 
 	def execute
-		analize_and_save
+		analyze_and_save
 	end
 
 	private
 
-	def analize_and_save
+	def analyze_and_save
 		@entries.each do |entry|
 			save_entry entry
+			claim_subscriber_tickets @saved_entry
 		end
+	end
+
+	def claim_subscriber_tickets entry
+		ClaimWishTickets.for(entry: entry)
 	end
 
 	def save_entry entry
@@ -36,6 +41,7 @@ class SaveEntries < Interactor
 	end
 
 	def create_or_update title, status, site_id
+
 		if Entry.find_by_site_id(site_id).nil?
 			create_entry title, status, site_id
 		else
@@ -46,19 +52,19 @@ class SaveEntries < Interactor
 	end
 
 	def create_entry title, status, site_id
-		entry = Entry.create(:title => title, :status => status, :site_id => site_id)
-		send_alert_if_available entry
+		@saved_entry = Entry.create(:title => title, :status => status, :site_id => site_id)
+		send_alert_if_available @saved_entry
 	end
 
 	def update_entry status, site_id
-		entry = Entry.find_by_site_id site_id
+		@saved_entry = Entry.find_by_site_id site_id
 		# Check if status changed,
 		# or if the emails has not been sent and the id is
 		# the same as last one (more than one in the page)
 
-		if has_not_been_notified entry
-			entry.update_attributes(:status => status)
-			send_alert_if_available entry
+		if has_not_been_notified @saved_entry
+			@saved_entry.update_attributes(:status => status)
+			send_alert_if_available @saved_entry
 		end
 	end
 
