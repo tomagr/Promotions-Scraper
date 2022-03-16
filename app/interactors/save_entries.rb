@@ -20,7 +20,7 @@ class SaveEntries < Interactor
 	def analyze_and_save
 		@entries.each do |entry|
 			save_entry entry
-			claim_subscriber_tickets @saved_entry
+			
 		end
 	end
 
@@ -37,6 +37,7 @@ class SaveEntries < Interactor
 			status = @parsed_entry['data-condition']
 
 			create_or_update title, status, site_id
+			claim_subscriber_tickets @saved_entry if entry_is_available_to_claim
 		end
 	end
 
@@ -77,7 +78,7 @@ class SaveEntries < Interactor
 	end
 
 	def send_alert_if_available entry
-		SendAlert.for(entry: entry) if is_today?(entry) and entry_is_available?
+		SendAlert.for(entry: entry) if is_today?(entry) and entry_is_available_to_claim
 	end
 
 	def parse_id_from_uri uri
@@ -88,7 +89,7 @@ class SaveEntries < Interactor
 		!(entry.status =~ /HOY/i).nil?
 	end
 
-	def entry_is_available?
+	def entry_is_available_to_claim
 		# figcaption element contains the 'Reservá ahora' text
 		@parsed_entry.css('figcaption').present? #and entry.css('figcaption').text == 'Reservá ahora'
 	end
