@@ -17,5 +17,10 @@
 require 'rails_helper'
 
 RSpec.describe SubscriberWish, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it { is_expected.to respond_to(:name) }
+	it { is_expected.to respond_to(:claimed) }
+	it { is_expected.to respond_to(:response) }
+
+	it { is_expected.to respond_to(:subscriber) }
+	it { is_expected.to belong_to(:subscriber) }
 end

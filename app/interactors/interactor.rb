@@ -20,4 +20,7 @@ class Interactor
 			super
 		end
 	end
+
+
+
 end

@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-class BaseInteractor
+class BaseInteractor < Interactor
   include ErrorRaiser
-
-  def tickets_url
-    "https://experienciasblack.lanacion.com.ar/"
-  end
 
   private
 
@@ -24,4 +20,13 @@ class BaseInteractor
   def raise_invalid_repository
     raise 'Invalid repository'
   end
+
+  def invalid_name name
+    invalid :name, 'Name cant be blank' if name.blank?
+  end
+
+  def invalid_url url
+    invalid :url, 'Url cant be nil' if url.nil?
+  end
+
 end

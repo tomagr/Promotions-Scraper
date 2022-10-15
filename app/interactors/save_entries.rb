@@ -3,8 +3,7 @@ class SaveEntries < Interactor
 	@@last_id = 0
 
 	def self.save(entries:)
-		save_entries = new(entries: entries)
-		save_entries.execute
+		new(entries: entries).execute
 	end
 
 	def initialize(entries:)

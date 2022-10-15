@@ -1,10 +1,9 @@
 require 'open-uri'
 
-class ScrapeSite < Interactor
+class ScrapeSite < BaseInteractor
 
 	def self.by(url:)
-		scrape_site = new(url: url)
-		scrape_site.execute
+		new(url: url).execute
 	end
 
 	def initialize(url:)
@@ -12,6 +11,7 @@ class ScrapeSite < Interactor
 	end
 
 	def execute
+		invalid_url @url
 		scrape_site
 	end
 
@@ -21,6 +21,7 @@ class ScrapeSite < Interactor
 		doc = Nokogiri::HTML(open(@url))
 		entries = doc.css('.blog-post-item')
 		save_entries entries unless entries.nil?
+		entries
 	end
 
 	def save_entries entries
