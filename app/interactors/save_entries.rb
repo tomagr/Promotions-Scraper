@@ -18,10 +18,7 @@ class SaveEntries < Interactor
 	private
 
 	def analyze_and_save
-		@entries.each do |entry|
-			save_entry entry
-			
-		end
+		@entries.each { |entry| save_entry entry }
 	end
 
 	def claim_subscriber_tickets entry
@@ -36,6 +33,7 @@ class SaveEntries < Interactor
 			site_id = parse_id_from_uri @parsed_entry.css('h2 a')[0]['href']
 			status = @parsed_entry['data-condition']
 
+			console_log "Scrapping #{title} - Status: #{status}"
 			create_or_update title, status, site_id
 			claim_subscriber_tickets @saved_entry if entry_is_available_to_claim
 		end
@@ -53,11 +51,13 @@ class SaveEntries < Interactor
 	end
 
 	def create_entry title, status, site_id
+		console_log "creating_entry #{title} - Status: #{status} - Site ID: #{site_id}"
 		@saved_entry = Entry.create(:title => title, :status => status, :site_id => site_id)
 		send_alert_if_available @saved_entry
 	end
 
 	def update_entry status, site_id
+		console_log "updating_entry Status: #{status} - Site ID: #{site_id}"
 		@saved_entry = Entry.find_by_site_id site_id
 		# Check if status changed,
 		# or if the emails has not been sent and the id is
@@ -93,6 +93,5 @@ class SaveEntries < Interactor
 		# figcaption element contains the 'Reservá ahora' text
 		@parsed_entry.css('figcaption').present? #and entry.css('figcaption').text == 'Reservá ahora'
 	end
-
 
 end

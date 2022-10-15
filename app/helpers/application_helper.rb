@@ -7,4 +7,8 @@ module ApplicationHelper
 				"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
 	end
 
+	def console_log message
+		puts "=== #{Time.now.strftime("%d/%m/%Y %H:%M:%S")} - #{message} \n" unless Rails.env.test?
+	end
+
 end

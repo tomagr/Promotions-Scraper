@@ -1,6 +1,7 @@
 class Interactor
 	include ActiveModel::Validations
 	include ErrorRaiser
+	include ApplicationHelper
 
 	attr_reader :arguments
 
