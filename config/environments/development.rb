@@ -38,7 +38,7 @@ Rails.application.configure do
 		:port => "587",
 		:domain => "gmail.com",
 		:user_name => "ratalert2017@gmail.com",
-		:password => "sinclair2955",
+		:password => "zxsdfkoedztafxbp",
 		:authentication => "plain"
 	}
 
