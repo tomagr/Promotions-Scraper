@@ -61,7 +61,6 @@ gem 'listen', '~> 3.0.5'
 
 gem 'mysql2', '~> 0.5.3'
 
-gem 'rubocop', require: false
 gem 'rubycritic', require: false
 gem 'web-console', '>= 3.3.0'
 
