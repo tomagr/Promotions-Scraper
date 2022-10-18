@@ -1,6 +1,6 @@
 require "i18n"
 
-class ClaimWishTickets < Interactor
+class ClaimWishTickets < BaseInteractor
 	validates :entry, presence: true
 
 	def self.for(entry:)
@@ -13,6 +13,8 @@ class ClaimWishTickets < Interactor
 	end
 
 	def execute
+		invalid_entry @entry
+
 		wish = existing_subscriber_wish
 		claim_tickets wish if wish.present?
 	end
@@ -30,7 +32,6 @@ class ClaimWishTickets < Interactor
 
 		10.times do |n|
 			console_log "Claiming ticket INTENT ##{n} for ====> #{@entry.title} \n"
-
 			response = ClaimTickets.for(entry: @entry)
 			console_log "Claim response: #{response}"
 

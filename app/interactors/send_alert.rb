@@ -1,4 +1,4 @@
-class SendAlert < Interactor
+class SendAlert < BaseInteractor
 
 	def self.for(entry:)
 		new(entry: entry).execute

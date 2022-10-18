@@ -1,4 +1,4 @@
-image: ruby:2.6.3
+image: ruby:2.6.3 --platform=linux/amd64
 
 services:
    - mysql:5.7.19

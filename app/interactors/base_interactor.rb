@@ -33,4 +33,9 @@ class BaseInteractor < Interactor
     invalid :entry, 'Entry cant be nil' if entry.nil?
   end
 
+  def invalid_xml_entries entries
+
+    invalid :entries, 'Entries cant be nil' if entries.blank?
+  end
+
 end

@@ -1,4 +1,4 @@
-class EntryIsFilteredBySubscriber < Interactor
+class EntryIsFilteredBySubscriber < BaseInteractor
 	include ApplicationHelper
 
 	def self.for(entry:, subscriber:)

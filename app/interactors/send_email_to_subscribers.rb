@@ -1,4 +1,4 @@
-class SendEmailToSubscribers < Interactor
+class SendEmailToSubscribers < BaseInteractor
 	validates :entry, presence: true
 
 	def self.for(entry:)

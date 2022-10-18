@@ -6,31 +6,31 @@ RSpec.describe SaveEntries do
 	let(:xml_entries) { ScrapeSite.by(url: url) }
 	let(:interactor) { SaveEntries.save(xml_entries: xml_entries) }
 
-	context 'with correct params' do
+	context 'when fetching new entries' do
 
-		context 'xml_entries' do
+		context 'with correct params' do
 
-			it{
-				# byebug
-			}
+			context 'when xml_entries has values' do
+				it "saves the site entries" do
+					expect(Entry.count).to > 0
+				end
+			end
+
 		end
 
+		context 'with incorrect params' do
 
-	end
+			context 'without xml_entries' do
+				let(:xml_entries) { nil }
+				include_examples 'interactor raises an error', Error
+			end
 
+			context 'with xml_entries empty' do
+				let(:xml_entries) { [] }
+				include_examples 'interactor raises an error', Error
+			end
 
-	context 'with incorrect params' do
-		#
-		# context 'without xml_entries' do
-		# 	let(:xml_entries) { nil }
-		# 	include_examples 'interactor raises an error', Error
-		# end
-		#
-		# context 'without xml_entries' do
-		# 	let(:xml_entries) { nil }
-		# 	include_examples 'interactor raises an error', Error
-		# end
-
+		end
 	end
 
 end

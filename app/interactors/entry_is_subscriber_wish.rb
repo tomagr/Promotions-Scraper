@@ -1,4 +1,4 @@
-class EntryIsSubscriberWish < Interactor
+class EntryIsSubscriberWish < BaseInteractor
 	include ApplicationHelper
 
 	def self.for(entry:)
