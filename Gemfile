@@ -82,7 +82,6 @@ group :development, :test do
 	gem 'simplecov'
 	gem 'factory_bot_rails'
 	gem 'json_matchers'
-	gem 'rubocop-rspec', require: false
 
 	# Error log
 	gem 'better_errors'
