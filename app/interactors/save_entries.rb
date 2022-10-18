@@ -3,7 +3,6 @@ class SaveEntries < BaseInteractor
 	@@last_id = 0
 
 	def self.save(xml_entries:)
-
 		new(xml_entries: xml_entries).execute
 	end
 
