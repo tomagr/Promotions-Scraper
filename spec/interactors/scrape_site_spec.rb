@@ -12,12 +12,22 @@ RSpec.describe ScrapeSite do
 
 		context 'without url' do
 			let(:url) { nil }
-			include_examples 'interactor raises an error'
+			include_examples 'interactor raises an error', Error
 		end
 
 		context 'with empty url' do
 			let(:url) { '' }
-			include_examples 'interactor raises an error'
+			include_examples 'interactor raises an error', Error
+		end
+
+		context 'when url does not exists' do
+			let(:url) { 'https://noentries.cc' }
+			include_examples 'interactor raises an error', SocketError
+		end
+
+		context 'when url has no entries' do
+			let(:url) { 'https://www.iproup.com' }
+			it { expect(interactor).to be_empty }
 		end
 
 	end

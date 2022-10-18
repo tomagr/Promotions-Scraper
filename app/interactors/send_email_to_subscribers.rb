@@ -20,12 +20,9 @@ class SendEmailToSubscribers < Interactor
 	private
 
 	def send_entry_email subscriber
-		log_entry_message
+		console_log "Email sent for ====> #{@entry.title}"
 		UserMailer.new_entry_email(entry: @entry, subscriber: subscriber).deliver_now
 	end
 
-	def log_entry_message
-		puts "Email sent for ====> #{@entry.title} \n"
-	end
 
 end

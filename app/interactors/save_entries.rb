@@ -2,12 +2,12 @@ class SaveEntries < Interactor
 
 	@@last_id = 0
 
-	def self.save(entries:)
-		new(entries: entries).execute
+	def self.save(xml_entries:)
+		new(xml_entries: xml_entries).execute
 	end
 
-	def initialize(entries:)
-		@entries = entries
+	def initialize(xml_entries:)
+		@xml_entries = xml_entries
 	end
 
 	def execute
@@ -17,15 +17,12 @@ class SaveEntries < Interactor
 	private
 
 	def analyze_and_save
-		@entries.each { |entry| save_entry entry }
+		@xml_entries.each { |xml_entry| save_entry xml_entry }
 	end
 
-	def claim_subscriber_tickets entry
-		ClaimWishTickets.for(entry: entry)
-	end
 
-	def save_entry entry
-		@parsed_entry = entry
+	def save_entry xml_entry
+		@parsed_entry = xml_entry
 		title = @parsed_entry.css('h2 a').text
 
 		if title.present?
@@ -66,6 +63,10 @@ class SaveEntries < Interactor
 			@saved_entry.update_attributes(:status => status)
 			send_alert_if_available @saved_entry
 		end
+	end
+
+	def claim_subscriber_tickets entry
+		ClaimWishTickets.for(entry: entry)
 	end
 
 	def has_not_been_notified entry
