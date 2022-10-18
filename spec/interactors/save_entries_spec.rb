@@ -3,7 +3,7 @@ require 'contexts/for_models'
 
 RSpec.describe SaveEntries do
 
-	let(:url) { Settings.scrapped_site }
+	let(:entries) {  }
 	let(:interactor) { ScrapeSite.by(url: url) }
 
 	context 'with correct params' do

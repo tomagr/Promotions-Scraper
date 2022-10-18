@@ -1,5 +1,8 @@
 #Coverage
 require 'simplecov'
+
+ENV["RAILS_ENV"] = 'test'
+
 SimpleCov.start do
   coverage_dir 'test_output/coverage/'
 
