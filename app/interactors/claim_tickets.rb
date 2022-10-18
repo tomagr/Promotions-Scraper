@@ -1,27 +1,19 @@
 class ClaimTickets < BaseInteractor
 
-	def self.for(entry_external_id:)
-		new(entry_external_id: entry_external_id).execute
+	def self.for(entry:)
+		new(entry: entry).execute
 	end
 
-	def initialize(entry_external_id:)
-		@entry_external_id = entry_external_id
+	def initialize(entry:)
+		@entry = entry
 	end
 
 	def execute
-		validate_php_session_id
+		invalid_entry @entry
 		claim_tickets
 	end
 
 	private
-
-	def phpsessid
-		AppConfig.where(slug: 'php_session_id').first&.value # <---- This ID needs to be updated - Fequency? Dunno
-	end
-
-	def validate_php_session_id
-		invalid :php_session_id, 'The email provided must not be nil' if phpsessid.blank?
-	end
 
 	def claim_tickets
 		response = PostRequest.to(uri: uri(endpoint), params: params, cookies: cookies)
@@ -44,8 +36,12 @@ class ClaimTickets < BaseInteractor
 		text.gsub(/\s+/, " ") || "Empty 200 response?"
 	end
 
+	def tickets_url
+		"https://experienciasblack.lanacion.com.ar/"
+	end
+
 	def endpoint
-		"experiencia/canjear/" + @entry_external_id.to_s
+		"experiencia/canjear/" + @entry.site_id.to_s
 	end
 
 	def uri endpoint
@@ -53,23 +49,23 @@ class ClaimTickets < BaseInteractor
 	end
 
 	def cookies
-		"PHPSESSID=#{phpsessid}; cookieLogin=#{cookie_login}; usuario%5Flogtkn=#{flog_token}; usuario%5Fid=#{user_id}; usuario%5Fdetalle%5Fguid=#{usuario_detalle_guid}; usuario%5Fusuario=#{username};"
+		"tieneClub=0; PHPSESSID=#{phpsessid}; token=#{token}; cookieLogin=#{cookie_login}; usuarioDetalleClubNacion=B; usuarioemail=smacagno@gmail.com; ProductoPremiumId=2,3,4,5; usuario%5Fid=3104118; usuario%5Fdetalle%5Fnick=smacagno; usuario%5Fdetalle%5Fguid={30A797D7-6096-46C9-830A-EA2491AA41D8}; usuario%5Fusuario=smacagno; Crm_id=A00624459; gaComboType=ga-combo3;"
+	end
+
+	def phpsessid
+		'58k2h1ukt966d5436urtq6m0t6'
+	end
+
+	def gid
+		'GA1.3.918545336.1665970354'
 	end
 
 	def cookie_login
-		'usuario%5Fid=3104118&estado_id=1&nacimiento=&usuario_facebook_id=10210999721403518&usuario_gmail_id117360688670536991880'
+		"usuario%5Fid=3104118&estado_id=1&nacimiento=&usuario_facebook_id=10210999721403518&usuario_gmail_id117360688670536991880"
 	end
 
-	def flog_token
-		'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVzIjoxNjUwNTEzNjM4LCJ1c2VyX2lkIjoiMzEwNDExOCIsImRpc3BsYXlfbmFtZSI6InNtYWNhZ25vIiwiZG9tYWluIjoibGEtbmFjaW9uLmZ5cmUuY28ifQ.DuOaP46RrokJ7AuzjDdeH8jz90n9aNGE970i6va3Ow4'
-	end
-
-	def user_id
-		'3104118'
-	end
-
-	def usuario_detalle_guid
-		'{E7AF682A-51EA-48C1-94D5-2D0245C71BE0}'
+	def token
+		"30A797D7-6096-46C9-830A-EA2491AA41D8"
 	end
 
 	def username

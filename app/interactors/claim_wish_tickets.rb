@@ -27,10 +27,12 @@ class ClaimWishTickets < Interactor
 	end
 
 	def claim_tickets wish
-		10.times do
-			puts "Claiming ticket for ====> #{@entry.title} \n"
-			response = ClaimTickets.for(entry_external_id: @entry.site_id)
-			puts response
+
+		10.times do |n|
+			console_log "Claiming ticket INTENT ##{n} for ====> #{@entry.title} \n"
+
+			response = ClaimTickets.for(entry: @entry)
+			console_log "Claim response: #{response}"
 
 			if claimed_success response
 				wish.update_attributes!(:response => response)

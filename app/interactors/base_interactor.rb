@@ -29,4 +29,8 @@ class BaseInteractor < Interactor
     invalid :url, 'Url cant be nil' if url.blank?
   end
 
+  def invalid_entry entry
+    invalid :entry, 'Entry cant be nil' if entry.nil?
+  end
+
 end
