@@ -3,30 +3,28 @@ require 'rails_helper'
 RSpec.describe SaveEntry do
 
 	let(:url) { Settings.scrapped_site }
-	let(:xml_entry) { ScrapeSite.by(url: url).first }
-	let(:interactor) { SaveEntries.by(xml_entry: xml_entries) }
+	let(:xml_entries) { ScrapeSite.by(url: url) }
+	let(:xml_entry) { xml_entries.first }
+
+	let!(:entry) { create :entry }
+	let(:interactor) { SaveEntry.by(xml_entry: xml_entry, last_id: entry.site_id) }
 
 	context 'when fetching new entries' do
 
 		context 'with correct params' do
 
-			context 'when xml_entries has values' do
-				it "saves the site entries" do
-					expect(Entry.count).to > 0
+			context 'when saving an existing entry' do
+
+				it "updates the entry" do
+					expect { interactor }.to change { Entry.count }
 				end
 			end
-
 		end
 
 		context 'with incorrect params' do
 
-			context 'without xml_entries' do
-				let(:xml_entries) { nil }
-				include_examples 'interactor raises an error', Error
-			end
-
-			context 'with xml_entries empty' do
-				let(:xml_entries) { [] }
+			context 'without a xml_entry' do
+				let(:xml_entry) { nil }
 				include_examples 'interactor raises an error', Error
 			end
 

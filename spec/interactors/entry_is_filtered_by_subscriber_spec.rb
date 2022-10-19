@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'contexts/for_models'
 
 RSpec.shared_examples 'EntryIsFilteredBySubscriber is succesful with match' do
 	it 'the entry is filtered by the tags' do

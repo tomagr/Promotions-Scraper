@@ -1,13 +1,12 @@
 class SaveEntry < BaseInteractor
 
 	def self.by(xml_entry:, last_id:)
-
-		new(xml_entry: xml_entry, last_id:last_id).execute
+		new(xml_entry: xml_entry, last_id: last_id).execute
 	end
 
 	def initialize(xml_entry:, last_id:)
 		@xml_entry = xml_entry
-		@last_id= last_id
+		@last_id = last_id
 	end
 
 	def execute
@@ -16,7 +15,6 @@ class SaveEntry < BaseInteractor
 	end
 
 	private
-
 
 	def save_entry xml_entry
 		@parsed_entry = xml_entry

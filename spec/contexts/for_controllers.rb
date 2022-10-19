@@ -1,4 +1,3 @@
-require 'contexts/for_models'
 
 RSpec.shared_context 'stub doorkeeper' do
   let( :token ) { double :acceptable? => true }

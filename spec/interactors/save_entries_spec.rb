@@ -21,8 +21,6 @@ RSpec.describe SaveEntries do
 		end
 
 		context 'with incorrect params' do
-
-
 			context 'without xml_entries' do
 				let(:xml_entries) { nil }
 				include_examples 'interactor raises an error', Error
