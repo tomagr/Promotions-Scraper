@@ -4,14 +4,15 @@ RSpec.describe SaveEntries do
 
 	let(:url) { Settings.scrapped_site }
 	let(:xml_entries) { ScrapeSite.by(url: url) }
+	let(:interactor) { SaveEntries.save(xml_entries: xml_entries) }
 
 	context 'when fetching new entries' do
 
 
 		context 'with correct params' do
-			before { SaveEntries.save(xml_entries: xml_entries) }
 
 			context 'when xml_entries has values' do
+				before { interactor }
 				it "saves the site entries" do
 					expect(Entry.count).to be > 0
 				end
@@ -20,7 +21,7 @@ RSpec.describe SaveEntries do
 		end
 
 		context 'with incorrect params' do
-			before { SaveEntries.save(xml_entries: xml_entries) }
+
 
 			context 'without xml_entries' do
 				let(:xml_entries) { nil }
