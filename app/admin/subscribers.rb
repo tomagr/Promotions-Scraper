@@ -68,8 +68,8 @@ ActiveAdmin.register Subscriber do
 		end
 
 		h3 'Wishes'
-		subscriber.wishes.each do |filter|
-			ul "#{filter.name} - '#{filter.response}'"
+		subscriber.wishes.each do |wish|
+			ul "#{wish.name} - '#{wish.response}'"
 		end
 
 		h3 'Filters'

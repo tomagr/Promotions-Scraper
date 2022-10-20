@@ -14,4 +14,9 @@ class UserMailer < ApplicationMailer
 		mail(bcc: 'tomas@amalgama.co', subject: 'RatAlert Exception')
 	end
 
+	def claimed_email(entry:)
+		@entry = entry
+		mail(bcc: "tomas@amalgama.co", subject: 'RatAlert - Claimed' + entry.title)
+	end
+
 end

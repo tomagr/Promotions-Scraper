@@ -37,6 +37,7 @@ class ClaimWishTickets < BaseInteractor
 
 			if claimed_success response
 				wish.update_attributes!(:response => response)
+				send_claimed_email_for @entry
 				break
 			end
 
@@ -53,6 +54,11 @@ class ClaimWishTickets < BaseInteractor
 
 	def limit_reached response
 		I18n.transliterate(response.downcase).include?("superaste el limite")
+	end
+
+
+	def send_claimed_email_for entry
+		SendClaimedEmail.for(entry: entry)
 	end
 
 end

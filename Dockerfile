@@ -1,10 +1,10 @@
-FROM ruby:2.6.3
+FROM ruby:3.0.1
 WORKDIR /usr/src/scraper
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 ADD Gemfile $SRCPATH/Gemfile
 
-ADD Gemfile.lock $SRCPATH/Gemfile.lock
+#ADD Gemfile.lock $SRCPATH/Gemfile.lock
 
 RUN bundle install
 COPY . $SRCPATH
