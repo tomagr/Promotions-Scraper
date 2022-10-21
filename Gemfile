@@ -75,14 +75,6 @@ group :development, :test do
 	gem 'capistrano-rvm'
 
 	gem 'rexml'
-	gem 'shoulda-matchers', '~> 3.1'
-	gem 'rspec-rails'
-	gem 'rspec-collection_matchers'
-
-	gem 'simplecov'
-	gem 'factory_bot_rails'
-	gem 'json_matchers'
-	gem 'rubycritic', require: false
 
 	# Error log
 	gem 'better_errors'
@@ -95,4 +87,16 @@ end
 group :development do
 	gem 'web-console', '>= 4.1.0'
 	gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+
+group :test do
+	gem 'shoulda-matchers', '~> 3.1'
+	gem 'rspec-rails'
+	gem 'rspec-collection_matchers'
+
+	gem 'simplecov'
+	gem 'factory_bot_rails'
+	gem 'json_matchers'
+	gem 'rubycritic', require: false
 end
