@@ -98,5 +98,5 @@ group :test do
 	gem 'simplecov'
 	gem 'factory_bot_rails'
 	gem 'json_matchers'
-	gem 'rubycritic', require: false
+	gem 'rubycritic'
 end
