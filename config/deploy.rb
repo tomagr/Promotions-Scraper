@@ -6,7 +6,7 @@ set :format, :pretty
 set :linked_dirs, fetch(:linked_dirs, [])
   .push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
         'public/system', 'public/uploads', 'config/settings', 'storage')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/storage.yml')
 
 set :keep_releases, 1
 set :rvm_ruby_version, '3.0.1'
