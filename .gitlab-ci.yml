@@ -25,7 +25,7 @@ stages:
 test:
    script:
       - bundle exec rake db:drop db:create db:migrate
-      - bundle exec rake app:reports
+      - bundle exec rake scraper:reports
    tags:
       - docker
    coverage: '/\(\d+.\d+\%\) covered/'
