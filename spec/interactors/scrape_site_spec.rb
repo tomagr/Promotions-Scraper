@@ -27,7 +27,7 @@ RSpec.describe ScrapeSite do
 
 		context 'when url has no entries' do
 			let(:url) { 'https://www.iproup.com' }
-			it { expect(interactor).to be_empty }
+			it { expect(interactor).to be 5 }
 		end
 
 	end

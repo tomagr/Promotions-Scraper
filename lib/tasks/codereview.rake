@@ -1,9 +1,11 @@
-require 'rubycritic/cli/application'
+# frozen_string_literal: true
 
-namespace :app do
+namespace :bleap do
 	desc 'Automatic code-review report'
 	task :codereview do
-		arguments = [ '--no-browser', '--path', 'reports/codereview', 'app', 'lib' ]
+		require 'rubycritic/cli/application'
+
+		arguments = ['--path', 'reports/codereview', '--no-browser', 'app']
 		app = RubyCritic::Cli::Application.new arguments
 		app.execute
 	end
