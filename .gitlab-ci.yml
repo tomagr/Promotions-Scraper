@@ -12,10 +12,14 @@ variables:
    MYSQL_DATABASE: "scraper_test"
 
 before_script:
+   - bundle install --jobs 4 --deployment
    - cp config/database.yml.example config/database.yml
    - cp config/secrets.yml.example  config/secrets.yml
+   - cp config/settings/example.yml config/settings/test.yml
    - mkdir -p reports/
-   - bundle install --jobs 4 --deployment
+
+stages:
+   - test
 
 test:
    script:

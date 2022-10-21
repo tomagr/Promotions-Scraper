@@ -16,13 +16,13 @@ class UserMailer < ApplicationMailer
 
 	def claimed_email(entry:)
 		@entry = entry
-		mail(bcc: "tomas@amalgama.co", subject: 'RatAlert - Claimed' + entry.title)
+		mail(bcc: "tomas@amalgama.co", subject: 'Beneficio sacado! ' + entry.title)
 	end
 
 
 	def limited_reached_email(entry:)
 		@entry = entry
-		mail(bcc: "tomas@amalgama.co", subject: 'RatAlert - Claimed' + entry.title)
+		mail(bcc: "tomas@amalgama.co", subject: 'Carajito, llegamo al limite con ' + entry.title)
 	end
 
 end

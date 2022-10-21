@@ -463,7 +463,7 @@ DEPENDENCIES
   sqlite3
   therubyracer
   turbolinks (~> 5)
-  web-console (>= 3.3.0)
+  web-console (>= 4.1.0)
   whenever
 
 RUBY VERSION
