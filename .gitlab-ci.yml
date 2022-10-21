@@ -12,6 +12,7 @@ variables:
    MYSQL_DATABASE: "scraper_test"
 
 before_script:
+   - apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
    - bundle install --jobs 4 --deployment
    - cp config/database.yml.example config/database.yml
    - cp config/secrets.yml.example  config/secrets.yml

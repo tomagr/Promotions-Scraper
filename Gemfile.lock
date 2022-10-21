@@ -237,7 +237,7 @@ GEM
     kwalify (0.7.2)
     launchy (2.5.0)
       addressable (~> 2.7)
-    libv8-alpine (6.7.288.46.1-x86_64-linux)
+    libv8 (3.16.14.19-x86_64-linux)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -315,6 +315,7 @@ GEM
       kwalify (~> 0.7.0)
       parser (~> 3.1.0)
       rainbow (>= 2.0, < 4.0)
+    ref (2.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -388,6 +389,9 @@ GEM
     sshkit (1.21.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
@@ -439,7 +443,6 @@ DEPENDENCIES
   fuubar
   jbuilder (~> 2.5)
   json_matchers
-  libv8-alpine (~> 6.7, >= 6.7.288.46.1)
   listen (~> 3.0.5)
   mimemagic
   mysql2 (~> 0.5.3)
@@ -458,6 +461,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  therubyracer
   turbolinks (~> 5)
   web-console (>= 4.1.0)
   whenever
