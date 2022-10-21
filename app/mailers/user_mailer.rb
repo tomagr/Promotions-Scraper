@@ -19,4 +19,10 @@ class UserMailer < ApplicationMailer
 		mail(bcc: "tomas@amalgama.co", subject: 'RatAlert - Claimed' + entry.title)
 	end
 
+
+	def limited_reached_email(entry:)
+		@entry = entry
+		mail(bcc: "tomas@amalgama.co", subject: 'RatAlert - Claimed' + entry.title)
+	end
+
 end

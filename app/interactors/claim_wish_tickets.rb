@@ -56,8 +56,11 @@ class ClaimWishTickets < BaseInteractor
 		I18n.transliterate(response.downcase).include?("superaste el limite")
 	end
 
-
 	def send_claimed_email_for entry
+		SendClaimedEmail.for(entry: entry)
+	end
+
+	def send_limited_reached_email_for entry
 		SendClaimedEmail.for(entry: entry)
 	end
 

@@ -54,7 +54,7 @@ gem 'nokogiri'
 
 # For the js runtime
 gem 'execjs'
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 
 #Cron Job
