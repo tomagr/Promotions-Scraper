@@ -54,8 +54,8 @@ gem 'nokogiri'
 
 # For the js runtime
 gem 'execjs'
-gem 'therubyracer', platforms: :ruby
-
+# gem 'therubyracer', platforms: :ruby
+gem 'libv8-alpine', '~> 6.7', '>= 6.7.288.46.1'
 
 #Cron Job
 gem 'whenever', :require => false
