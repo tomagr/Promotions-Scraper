@@ -64,7 +64,6 @@ gem 'listen', '~> 3.0.5'
 
 gem 'mysql2', '~> 0.5.3'
 
-gem 'rubycritic', require: false
 gem 'web-console', '>= 3.3.0'
 
 group :development, :test do
@@ -74,16 +73,18 @@ group :development, :test do
 
 	gem 'capistrano', '~> 3.1'
 	gem 'capistrano-rails', '~> 1.1'
-	# gem 'capistrano3-puma', github: 'seuros/capistrano-puma', require: false
+	gem 'capistrano3-puma'
 	gem 'capistrano-rvm'
 
+	gem 'rexml'
 	gem 'shoulda-matchers', '~> 3.1'
-	# gem 'rspec-rails'
+	gem 'rspec-rails'
 	gem 'rspec-collection_matchers'
 
 	gem 'simplecov'
-	# gem 'factory_bot_rails'
+	gem 'factory_bot_rails'
 	gem 'json_matchers'
+	gem 'rubycritic', require: false
 
 	# Error log
 	gem 'better_errors'

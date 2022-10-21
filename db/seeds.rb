@@ -11,7 +11,7 @@ if Rails.env.development?
   unless User.exists?(email: 'tomas@amalgama.co')
     User.create!(
 			email: 'tomas@amalgama.co',
-			password: 'sinclair',
+			password: 'password',
 			password_confirmation: 'password'
 		)
 	end
