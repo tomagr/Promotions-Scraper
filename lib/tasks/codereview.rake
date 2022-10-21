@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace :bleap do
+namespace :scraper do
 	desc 'Automatic code-review report'
 	task :codereview do
 		require 'rubycritic/cli/application'

@@ -1,4 +1,4 @@
-namespace :app do
+namespace :scraper do
 	desc 'Run all tests in spec directory'
 	task :test do
 		Rake::Task[ 'spec' ].invoke
