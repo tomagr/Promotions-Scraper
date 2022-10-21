@@ -12,7 +12,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sqlite3'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.3', '>= 4.3.7'
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -69,7 +69,7 @@ group :development, :test do
 	gem 'spring'
 
 	gem 'capistrano'
-	gem 'capistrano3-puma'
+	gem 'capistrano3-puma', github: 'seuros/capistrano-puma', require: false
 	gem 'capistrano-bundler', require: false
 	gem 'capistrano-rails'
 	gem 'capistrano-rvm'
