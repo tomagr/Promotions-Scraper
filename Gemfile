@@ -1,16 +1,18 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
+ruby '3.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2'
+gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.3', '>= 4.3.7'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -22,7 +24,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+# gem 'jquery-rails'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -41,7 +43,7 @@ gem 'annotate'
 gem 'devise'
 
 # Active admin, url: https://github.com/activeadmin/activeadmin
-gem 'activeadmin', '1.3.0'
+gem 'activeadmin'
 
 gem 'mimemagic'
 
@@ -52,7 +54,7 @@ gem 'nokogiri'
 
 # For the js runtime
 gem 'execjs'
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 
 #Cron Job
@@ -72,15 +74,15 @@ group :development, :test do
 
 	gem 'capistrano', '~> 3.1'
 	gem 'capistrano-rails', '~> 1.1'
-	gem 'capistrano3-puma'
+	# gem 'capistrano3-puma', github: 'seuros/capistrano-puma', require: false
 	gem 'capistrano-rvm'
 
 	gem 'shoulda-matchers', '~> 3.1'
-	gem 'rspec-rails'
+	# gem 'rspec-rails'
 	gem 'rspec-collection_matchers'
 
 	gem 'simplecov'
-	gem 'factory_bot_rails'
+	# gem 'factory_bot_rails'
 	gem 'json_matchers'
 
 	# Error log

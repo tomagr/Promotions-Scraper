@@ -1,9 +1,26 @@
 if Rails.env.development?
 
-  User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-  User.create!(email: 'tomas@amalgama.co', password: 'sinclair', password_confirmation: 'sinclair')
+  unless User.exists?(email: 'admin@example.com')
+    User.create!(
+			email: 'admin@example.com',
+			password: 'password',
+			password_confirmation: 'password'
+		)
+	end
 
-  Subscriber.create!(name: 'Cobra', email: 'tomas@amalgama.co', available: true)
+  unless User.exists?(email: 'tomas@amalgama.co')
+    User.create!(
+			email: 'tomas@amalgama.co',
+			password: 'sinclair',
+			password_confirmation: 'password'
+		)
+	end
 
-  Level.create!(clue: 'Martes 22/06 14.00 - San Martin de los Andes 4444 PB 2. Nombre del cocinero', priority: 1, code: 'agrimb')
+  unless Subscriber.exists?(email: 'tomas@amalgama.co')
+    Subscriber.create!(
+			name: 'Cobra',
+			email: 'tomas@amalgama.co',
+			available: true)
+	end
+
 end
