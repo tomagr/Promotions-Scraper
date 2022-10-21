@@ -107,6 +107,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-secrets-yml (1.2.1)
+      capistrano (>= 3.10)
+      sshkit (>= 1.17.0)
     capistrano3-puma (5.2.0)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -430,9 +433,11 @@ DEPENDENCIES
   bcrypt_pbkdf
   better_errors
   byebug
-  capistrano (~> 3.1)
-  capistrano-rails (~> 1.1)
+  capistrano
+  capistrano-bundler
+  capistrano-rails
   capistrano-rvm
+  capistrano-secrets-yml
   capistrano3-puma
   coffee-rails (~> 4.2)
   config

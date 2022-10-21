@@ -55,7 +55,6 @@ gem 'nokogiri'
 # For the js runtime
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
-# gem 'libv8-alpine', '~> 6.7', '>= 6.7.288.46.1'
 
 #Cron Job
 gem 'whenever', :require => false
@@ -69,10 +68,12 @@ group :development, :test do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
 
-	gem 'capistrano', '~> 3.1'
-	gem 'capistrano-rails', '~> 1.1'
+	gem 'capistrano'
 	gem 'capistrano3-puma'
+	gem 'capistrano-bundler', require: false
+	gem 'capistrano-rails'
 	gem 'capistrano-rvm'
+	gem 'capistrano-secrets-yml', require: false
 
 	gem 'rexml'
 
