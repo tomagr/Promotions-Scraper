@@ -85,7 +85,7 @@ end
 
 group :test do
 	gem 'capistrano'
-	gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+	gem "capistrano3-puma", "4.0.0"
 	gem 'capistrano-bundler', require: false
 	gem 'capistrano-rails'
 	gem 'capistrano-rvm'
