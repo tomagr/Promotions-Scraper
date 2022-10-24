@@ -3,7 +3,7 @@
 require 'simplecov'
 
 SimpleCov.start do
-  project_name 'Bleap'
+  project_name 'Scaper'
   coverage_dir 'reports/coverage'
   track_files '{app,lib}/**/*.rb'
 
