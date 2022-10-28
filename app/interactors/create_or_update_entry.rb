@@ -12,7 +12,12 @@ class CreateOrUpdateEntry < BaseInteractor
 	end
 
 	def execute
+		invalid_title @title
+		invalid_status @status
+		invalid_site_id @site_id
+
 		create_or_update @title, @status, @site_id
+		@entry
 	end
 
 	private
@@ -23,33 +28,20 @@ class CreateOrUpdateEntry < BaseInteractor
 
 	def create_entry title, status, site_id
 		console_log "creating_entry #{title} - Status: #{status} - Site ID: #{site_id}"
-		@saved_entry = Entry.create(:title => title, :status => status, :site_id => site_id)
-		send_alert_if_available @saved_entry
+		@entry = Entry.create(:title => title, :status => status, :site_id => site_id)
+		send_alert_if_available @entry
 	end
 
 	def update_entry status, site_id
 		console_log "updating_entry Status: #{status} - Site ID: #{site_id}"
-		@saved_entry = Entry.find_by_site_id site_id
-		# Check if status changed,
-		# or if the emails has not been sent and the id is
-		# the same as last one (more than one in the page)
+		@entry = Entry.find_by_site_id site_id
+		@entry.update!(:status => status) if @entry.status != status
 
-		if has_not_been_notified @saved_entry
-			@saved_entry.update_attributes(:status => status)
-			send_alert_if_available @saved_entry
-		end
-	end
-
-	def has_not_been_notified entry
-		entry.has_not_sent_email and is_an_available_entry? entry
-	end
-
-	def is_an_available_entry? entry
-		@last_id == entry.site_id or is_today?(entry)
+		send_alert_if_available @entry
 	end
 
 	def send_alert_if_available entry
-		SendAlert.for(entry: entry) if is_today?(entry) and entry_is_available_to_claim(entry)
+		SendAlert.for(entry: entry) if is_available(entry)
 	end
 
 end
