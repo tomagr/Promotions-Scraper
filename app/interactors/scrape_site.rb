@@ -19,13 +19,7 @@ class ScrapeSite < BaseInteractor
 
 	def scrape_site
 		doc = Nokogiri::HTML(URI.open(@url))
-		xml_entries = doc.css('.blog-post-item')
-		save_entries xml_entries unless xml_entries.nil? or xml_entries.empty?
-		xml_entries
-	end
-
-	def save_entries xml_entries
-		SaveEntries.save(xml_entries: xml_entries)
+		doc.css('.blog-post-item')
 	end
 
 end

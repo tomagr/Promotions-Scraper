@@ -3,24 +3,15 @@ class Interactor
 	include ErrorRaiser
 	include ApplicationHelper
 
-	attr_reader :arguments
 
-	def initialize(arguments)
-		@arguments = arguments
-		validate!
-	rescue ActiveModel::ValidationError => exception
-		invalid exception.model.errors.messages.keys.first,
-				exception.model.errors.messages.values.first.first
+	private
+
+	def raise_invalid_user_repository
+		raise 'Invalid Users\'s repository'
 	end
 
-	def method_missing(name, *args, **kwargs)
-		if @arguments.key? name
-			@arguments[name]
-		else
-			super
-		end
+	def raise_invalid_repository
+		raise 'Invalid repository'
 	end
-
-
 
 end

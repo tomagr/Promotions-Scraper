@@ -4,7 +4,7 @@ class ScraperController < ApplicationController
 	end
 
 	def scrape
-		ScrapeSite.by(url: Settings.scrapped_site)
+		ScrapeExperiencias.now
 		@results = Entry.where('updated_at <= ?', DateTime.now + 1.minute).limit(10)
 	end
 end
