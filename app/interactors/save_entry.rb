@@ -1,4 +1,5 @@
 class SaveEntry < BaseInteractor
+	include EntriesHelper
 
 	def self.by(xml_entry:, last_id:)
 		new(xml_entry: xml_entry, last_id: last_id).execute
@@ -73,14 +74,6 @@ class SaveEntry < BaseInteractor
 
 	def send_alert_if_available entry
 		SendAlert.for(entry: entry) if is_today?(entry) and entry_is_available_to_claim
-	end
-
-	def parse_id_from_uri uri
-		uri.gsub("/experiencia/", "").to_i
-	end
-
-	def is_today? entry
-		!(entry.status =~ /HOY/i).nil?
 	end
 
 	def entry_is_available_to_claim

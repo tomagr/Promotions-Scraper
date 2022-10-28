@@ -85,7 +85,7 @@ end
 
 group :test do
 	gem 'capistrano'
-	gem "capistrano3-puma", "5.2.0"
+	gem "capistrano3-puma"
 	gem 'capistrano-bundler', require: false
 	gem 'capistrano-rails'
 	gem 'capistrano-rvm'
