@@ -14,9 +14,10 @@ RSpec.describe ScrapeExperiencias do
 			expect(interactor).to all(be_a(Nokogiri::XML::Element))
 		end
 
-		it "updates the entry" do
-			
-			expect { interactor }.to change { Entry.count }
+		context 'with correct params' do
+			it "changes the amount of Entries" do
+				expect { interactor }.to change { Entry.count }
+			end
 		end
 	end
 
