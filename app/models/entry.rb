@@ -3,14 +3,15 @@
 # Table name: entries
 #
 #  id          :integer          not null, primary key
-#  title       :string(255)
-#  status      :string(255)
-#  site_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  released_at :datetime
+#  available   :boolean          default(FALSE)
 #  email_sent  :boolean          default(FALSE)
 #  featured    :boolean          default(FALSE)
+#  released_at :datetime
+#  status      :string(255)
+#  title       :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  site_id     :integer
 #
 
 class Entry < ApplicationRecord

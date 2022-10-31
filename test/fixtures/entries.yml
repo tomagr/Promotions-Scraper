@@ -3,6 +3,7 @@
 # Table name: entries
 #
 #  id          :integer          not null, primary key
+#  available   :boolean          default(FALSE)
 #  email_sent  :boolean          default(FALSE)
 #  featured    :boolean          default(FALSE)
 #  released_at :datetime

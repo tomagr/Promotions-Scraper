@@ -24,9 +24,11 @@ class SaveEntry < BaseInteractor
 		if title.present?
 			site_id = parse_id_from_uri @parsed_entry.css('h2 a')[0]['href']
 			status = @parsed_entry['data-condition']
-			console_log "Scrapping #{title} - Status: #{status}"
+			available = xml_entry_is_available xml_entry
+			console_log "Scrapping #{title} - Status: #{status} - Available: #{available}"
 
-			CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id)
+			byebug
+			CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id, available: available)
 			claim_subscriber_tickets @saved_entry if entry_is_available_to_claim(@parsed_entry)
 
 			site_id
@@ -36,5 +38,6 @@ class SaveEntry < BaseInteractor
 	def claim_subscriber_tickets entry
 		ClaimWishTickets.for(entry: entry)
 	end
+
 
 end
