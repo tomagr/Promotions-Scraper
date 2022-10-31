@@ -18,18 +18,16 @@ class SaveEntry < BaseInteractor
 	private
 
 	def save_entry xml_entry
-		@parsed_entry = xml_entry
-		title = @parsed_entry.css('h2 a').text
+		title = xml_entry.css('h2 a').text
 
 		if title.present?
-			site_id = parse_id_from_uri @parsed_entry.css('h2 a')[0]['href']
-			status = @parsed_entry['data-condition']
+			site_id = parse_id_from_uri xml_entry.css('h2 a')[0]['href']
+			status = xml_entry['data-condition']
 			available = xml_entry_is_available xml_entry
 			console_log "Scrapping #{title} - Status: #{status} - Available: #{available}"
 
-			byebug
 			CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id, available: available)
-			claim_subscriber_tickets @saved_entry if entry_is_available_to_claim(@parsed_entry)
+			claim_subscriber_tickets xml_entry if available
 
 			site_id
 		end

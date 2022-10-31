@@ -17,13 +17,13 @@ class CreateOrUpdateEntry < BaseInteractor
 		invalid_status @status
 		invalid_site_id @site_id
 
-		create_or_update @title, @status, @site_id
+		create_or_update @title, @status, @site_id, @available
 		@entry
 	end
 
 	private
 
-	def create_or_update title, status, site_id
+	def create_or_update title, status, site_id, available
 		Entry.find_by_site_id(site_id).nil? ? create_entry(title, status, site_id, available) : update_entry(status, site_id, available)
 	end
 
