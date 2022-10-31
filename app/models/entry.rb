@@ -24,10 +24,10 @@ class Entry < ApplicationRecord
 		'http://experienciasblack.lanacion.com.ar/experiencia/' + site_id.to_s
 	end
 
-	def available?
-		parsed_entry = find_by_site_id(site_id)
-		parsed_entry.css('figcaption').present? and parsed_entry.css('figcaption').text == 'Reservá ahora'
-	end
+	# def available?
+	# 	parsed_entry = find_by_site_id(site_id)
+	# 	parsed_entry.css('figcaption').present? and parsed_entry.css('figcaption').text == 'Reservá ahora'
+	# end
 
 	def has_not_sent_email
 		!self.email_sent

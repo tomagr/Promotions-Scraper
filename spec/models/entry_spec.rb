@@ -27,6 +27,7 @@ RSpec.describe Entry, type: :model do
 	it { should respond_to(:status) }
 	it { should respond_to(:released_at) }
 	it { should respond_to(:email_sent) }
+	it { should respond_to(:available) }
 
 	describe '#create!' do
 		context 'with correct params' do
