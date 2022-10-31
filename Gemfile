@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
-ruby '3.0.1'
+ruby '3.0.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
@@ -85,7 +85,7 @@ end
 
 group :test do
 	gem 'capistrano'
-	gem "capistrano3-puma"
+	gem "capistrano3-puma", "5.2.0"
 	gem 'capistrano-bundler', require: false
 	gem 'capistrano-rails'
 	gem 'capistrano-rvm'

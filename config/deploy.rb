@@ -9,7 +9,7 @@ set :linked_dirs, fetch(:linked_dirs, [])
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/storage.yml')
 
 set :keep_releases, 1
-set :rvm_ruby_version, '3.0.1'
+set :rvm_ruby_version, '3.0.2'
 #
 # namespace :puma do
 #   Rake::Task[:restart].clear_actions

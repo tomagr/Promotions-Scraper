@@ -421,7 +421,7 @@ GEM
     websocket-extensions (0.1.5)
     whenever (1.0.0)
       chronic (>= 0.6.3)
-    zeitwerk (2.6.1)
+    zeitwerk (2.6.2)
 
 PLATFORMS
   x86_64-linux
@@ -438,7 +438,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-secrets-yml
-  capistrano3-puma
+  capistrano3-puma (= 5.2.0)
   coffee-rails (~> 4.2)
   config
   devise
@@ -472,7 +472,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.15
+   2.2.22
