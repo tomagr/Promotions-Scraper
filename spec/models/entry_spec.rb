@@ -34,6 +34,7 @@ RSpec.describe Entry, type: :model do
 
 			let(:valid_entry) { create(:entry) }
 			it { expect(valid_entry).to be_valid }
+			it { expect(valid_entry.available).to eq false }
 
 		end
 

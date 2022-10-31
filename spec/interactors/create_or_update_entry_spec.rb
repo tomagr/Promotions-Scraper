@@ -5,8 +5,9 @@ RSpec.describe CreateOrUpdateEntry do
 	let(:title) { "A title to rat" }
 	let(:status) { "coming" }
 	let(:site_id) { 20896 }
+	let(:available) { false }
 
-	let(:interactor) { CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id) }
+	let(:interactor) { CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id, available: available) }
 
 	context 'with correct params' do
 

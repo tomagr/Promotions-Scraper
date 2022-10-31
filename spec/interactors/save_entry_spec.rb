@@ -4,7 +4,7 @@ RSpec.describe SaveEntry do
 
 	let(:url) { Settings.scrapped_site }
 	let(:xml_entries) { ScrapeSite.by(url: url) }
-	let(:xml_entry) { xml_entries.first }
+	let(:xml_entry) { xml_entries[1] }
 
 	let!(:entry) { create :entry }
 	let(:interactor) { SaveEntry.by(xml_entry: xml_entry, last_id: entry.site_id) }
