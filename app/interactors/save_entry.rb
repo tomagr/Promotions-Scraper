@@ -33,8 +33,8 @@ class SaveEntry < BaseInteractor
 		end
 	end
 
-	def claim_subscriber_tickets entry
-		ClaimWishTickets.for(entry: entry)
+	def claim_subscriber_tickets xml_entry
+		ClaimWishTickets.for(xml_entry: xml_entry)
 	end
 
 
