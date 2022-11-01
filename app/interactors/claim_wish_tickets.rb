@@ -1,23 +1,23 @@
 require "i18n"
 
 class ClaimWishTickets < BaseInteractor
-	validates :xml_entry, presence: true
+	validates :entry, presence: true
 
-	def self.for(xml_entry:)
-		send_alert = new(xml_entry: xml_entry)
+	def self.for(entry:)
+		send_alert = new(entry: entry)
 		send_alert.execute
 	end
 
-	def initialize(xml_entry:)
-		@xml_entry = xml_entry
+	def initialize(entry:)
+		@entry = entry
 	end
 
 	def execute
-		invalid_xml_entry @xml_entry
+		invalid_entry @entry
 
-		
 		wish = existing_subscriber_wish
 		claim_tickets wish if wish.present?
+		@entry
 	end
 
 	private
@@ -25,16 +25,15 @@ class ClaimWishTickets < BaseInteractor
 	def existing_subscriber_wish
 		wishes_titles = SubscriberWish.all.map(&:name)
 		wishes_titles.any? do |wish_title|
-			return SubscriberWish.where(name: wish_title).first if @xml_entry.title.downcase.include?(wish_title)
+			return SubscriberWish.where(name: wish_title).first if @entry.title.downcase.include?(wish_title)
 		end
 	end
 
 	def claim_tickets wish
-
 		10.times do |n|
-			console_log "Claiming ticket INTENT ##{n} for ====> #{@xml_entry.title} \n"
+			console_log "Claiming ticket INTENT ##{n} for ====> #{@entry.title} \n"
+
 			response = ClaimTickets.for(entry: @entry)
-			console_log "Claim response: #{response}"
 
 			if claimed_success response
 				wish.update!(:response => response)
@@ -50,11 +49,11 @@ class ClaimWishTickets < BaseInteractor
 	end
 
 	def claimed_success response
-		I18n.transliterate(response.downcase).include?("felicitaciones")
+		response.is_a?(String) and I18n.transliterate(response.downcase).include?("felicitaciones")
 	end
 
 	def limit_reached response
-		I18n.transliterate(response.downcase).include?("superaste el limite")
+		response.is_a?(String) and I18n.transliterate(response.downcase).include?("superaste el limite")
 	end
 
 	def send_claimed_email_for entry

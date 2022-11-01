@@ -16,6 +16,7 @@
 #
 FactoryBot.define do
   factory :subscriber_wish do
-    
+    subscriber
+    sequence(:name) { |n| "A name" }
   end
 end

@@ -26,15 +26,15 @@ class SaveEntry < BaseInteractor
 			available = xml_entry_is_available xml_entry
 			console_log "Scrapping #{title} - Status: #{status} - Available: #{available}"
 
-			CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id, available: available)
-			claim_subscriber_tickets xml_entry if available
+			entry = CreateOrUpdateEntry.by(title: title, status: status, site_id: site_id, available: available)
+			claim_subscriber_tickets entry if available
 
 			site_id
 		end
 	end
 
-	def claim_subscriber_tickets xml_entry
-		ClaimWishTickets.for(xml_entry: xml_entry)
+	def claim_subscriber_tickets entry
+		ClaimWishTickets.for(entry: entry)
 	end
 
 

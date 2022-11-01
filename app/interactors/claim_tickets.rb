@@ -18,6 +18,8 @@ class ClaimTickets < BaseInteractor
 	def claim_tickets
 		response = PostRequest.to(uri: uri(endpoint), params: params, cookies: cookies)
 		parse_response response
+		console_log "Claim response: #{response}"
+		response
 	end
 
 	def parse_response response
